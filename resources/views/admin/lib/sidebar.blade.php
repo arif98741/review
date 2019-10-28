@@ -27,30 +27,30 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-list"></i>
               <p>
-                Dashboard
+                Categories
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+              <a href="{{ route('admin.category.index') }}" class="nav-link">
+                  <i class="fas fa-list"></i>
+                  <p>Category list</p>
                 </a>
               </li>
+
+              <li class="nav-item">
+              <a href="{{ route('admin.category.create') }}" class="nav-link">
+                  <i class="fas fa-plus"></i>
+                  <p>Add Category</p>
+                </a>
+              </li>
+
+              
               
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
           </li>
           
           
@@ -192,7 +192,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/login.html" class="nav-link">
+                <a href="{{ url('admin/login') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Login</p>
                 </a>

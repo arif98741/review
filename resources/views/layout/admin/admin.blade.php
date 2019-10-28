@@ -4,12 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Panel</title>
+  <title>@yield('title') - Admin Panel</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('asset/back/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('asset/back/font-awesome/css/font-awesome.min.css')}}">
+  @stack('extra-css')
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
@@ -27,7 +29,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="{{ url('admin/dashboard') }}" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -95,6 +97,8 @@
   @include('admin.lib.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
+  
+
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -117,9 +121,17 @@
 <script src="{{asset('asset/back/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('asset/back/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+@stack('extra-scripts')
 <!-- AdminLTE App -->
 <script src="{{asset('asset/back/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('asset/back//dist/js/demo.js')}}"></script>
+<script>
+  $(document).ready(function() {
+    setTimeout(function(){
+      $('.message').slideUp(500);
+    },4000);
+  });
+</script>
 </body>
 </html>

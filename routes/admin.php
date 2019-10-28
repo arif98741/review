@@ -12,5 +12,5 @@
 
 Route::namespace('Admin')->group(function () { 
     Route::get('dashboard', 'AdminController@dashboard'); 
-   
+    Route::resource('category', 'CategoryController'); 
 });
