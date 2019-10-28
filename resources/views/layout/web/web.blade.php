@@ -94,7 +94,7 @@
 					<p>Check Ratings of Businesses, Read Reviews &amp; Buy</p>
 					<div class="row justify-content-center">
 						<div class="col-lg-9">
-						<form method="post" action="http://www.ansonika.com/vanno/row-listings-filterstop.html">
+						<form method="post" action="#">
 							<div class="row no-gutters custom-search-input-2">
 								<div class="col-lg-7">
 									<div class="form-group">
@@ -136,7 +136,7 @@
 				<div class="col-lg-4 col-sm-6">
 					<a href="grid-listings-filterstop.html" class="grid_item">
 						<figure>
-							<img src="img/box_cat_home_1.jpg" alt="">
+							<img src="{{asset('asset/front/img/box_cat_home_1.jpg')}}" alt="">
 							<div class="info">
 								<small>122 Results</small>
 								<em><i class="icon-comment"></i> 356 Reviews</em>
@@ -149,7 +149,7 @@
 				<div class="col-lg-4 col-sm-6">
 					<a href="grid-listings-filterstop.html" class="grid_item">
 						<figure>
-							<img src="img/Untitled-5-01.jpg" alt="">
+							<img src="{{asset('asset/front/img/Untitled-5-01.jpg')}}" alt="">
 							<div class="info">
 								<small>245 Results</small>
 								<em><i class="icon-comment"></i> 123 Reviews</em>
@@ -162,7 +162,7 @@
 				<div class="col-lg-4 col-sm-6">
 					<a href="grid-listings-filterstop.html" class="grid_item">
 						<figure>
-							<img src="img/Untitled-1-01.jpg" alt="">
+							<img src="{{asset('asset/front/img/Untitled-1-01.jpg')}}" alt="">
 							<div class="info">
 								<small>95 Results</small>
 								<em><i class="icon-comment"></i> 245 Reviews</em>
@@ -175,7 +175,7 @@
 				<div class="col-lg-4 col-sm-6">
 					<a href="grid-listings-filterstop.html" class="grid_item">
 						<figure>
-							<img src="img/Untitled-4.jpg" alt="">
+							<img src="{{asset('asset/front/img/Untitled-4.jpg')}}" alt="">
 							<div class="info">
 								<small>123 Results</small>
 								<em><i class="icon-comment"></i> 187 Reviews</em>
@@ -188,7 +188,7 @@
 				<div class="col-lg-4 col-sm-6">
 					<a href="grid-listings-filterstop.html" class="grid_item">
 						<figure>
-							<img src="img/box_cat_home_5.jpg" alt="">
+							<img src="{{asset('asset/front/img/box_cat_home_5.jpg')}}" alt="">
 							<div class="info">
 								<small>92 Results</small>
 								<em><i class="icon-comment"></i> 221 Reviews</em>
@@ -201,7 +201,7 @@
 				<div class="col-lg-4 col-sm-6">
 					<a href="grid-listings-filterstop.html" class="grid_item">
 						<figure>
-							<img src="img/box_cat_home_6.jpg" alt="">
+							<img src="{{asset('asset/front/img/box_cat_home_6.jpg')}}" alt="">
 							<div class="info">
 								<small>92 Results</small>
 								<em><i class="icon-comment"></i> 323 Reviews</em>
@@ -228,7 +228,7 @@
 				<div class="item">
 					<div class="review_listing">
 						<div class="clearfix">
-							<figure><img src="img/avatar1.jpg" alt=""></figure>
+							<figure><img src="{{asset('asset/front/img/avatar1.jpg')}}" alt=""></figure>
 							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><em>4.50/5.00</em></span>
 							<small>Shops</small>
 						</div>
@@ -246,7 +246,7 @@ Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
 				<div class="item">
 					<div class="review_listing">
 						<div class="clearfix">
-							<figure><img src="img/avatar2.jpg" alt=""></figure>
+							<figure><img src="{{asset('asset/front/img/avatar2.jpg')}}" alt=""></figure>
 							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
 							<small>Shops</small>
 						</div>
@@ -264,7 +264,7 @@ Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
 				<div class="item">
 					<div class="review_listing">
 						<div class="clearfix">
-							<figure><img src="img/avatar3.jpg" alt=""></figure>
+							<figure><img src="{{asset('asset/front/img/avatar3.jpg')}}" alt=""></figure>
 							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
 							<small>Shops</small>
 						</div>
@@ -282,7 +282,7 @@ Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
 				<div class="item">
 					<div class="review_listing">
 						<div class="clearfix">
-							<figure><img src="img/avatar4.jpg" alt=""></figure>
+							<figure><img src="{{asset('asset/front/img/avatar4.jpg')}}" alt=""></figure>
 							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><em>4.50/5.00</em></span>
 							<small>Shops</small>
 						</div>
@@ -300,7 +300,7 @@ Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
 				<div class="item">
 					<div class="review_listing">
 						<div class="clearfix">
-							<figure><img src="img/avatar5.jpg" alt=""></figure>
+							<figure><img src="{{asset('asset/front/img/avatar5.jpg')}}" alt=""></figure>
 							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
 							<small>Shops</small>
 						</div>
@@ -509,9 +509,9 @@ Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
 	<div id="toTop"></div><!-- Back to top button -->
 	
 	<!-- COMMON SCRIPTS -->
-    <script src="js/common_scripts.js"></script>
-	<script src="js/functions.js"></script>
-	<script src="assets/validate.js"></script>
+    <script src="{{asset('asset/front/js/common_scripts.js')}}"></script>
+	<script src="{{asset('asset/front/js/functions.js')}}"></script>
+	<script src="{{asset('asset/front/assets/validate.js')}}"></script>
 
 </body>
 
