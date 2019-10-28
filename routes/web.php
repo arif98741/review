@@ -2,6 +2,19 @@
 <?php
 
 Route::get('/','Web\HomeController@index');
+Route::get('/admin',function(){
+  return redirect('admin/login');
+});
+Route::get('/reviewer',function(){
+  return redirect('reviewer/login');
+});
+
+Route::get('/company',function(){
+  return redirect('company/login');
+});
+
+
+
 
 
 // auth routes start
