@@ -68,13 +68,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        if ($category->delete()) {
-            # code...
-            Session::flash('success', 'Category deleted successfully');
-            return redirect(route('admin.category.index'));
-        }else{
-            Session::flash('error', 'Category deleted failed');
-            return redirect(route('admin.category.index'));
-        }
+        $category->delete();
+        // if ($category->delete()) {
+        //     # code...
+        //     Session::flash('success', 'Category deleted successfully');
+        //     return redirect(route('admin.category.index'));
+        // }else{
+        //     Session::flash('error', 'Category deleted failed');
+        //     return redirect(route('admin.category.index'));
+        // }
     }
 }

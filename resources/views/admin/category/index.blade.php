@@ -59,6 +59,8 @@
 
                         
 
+                        
+
                         <a href="{{ route('admin.category.destroy',$category->id) }}"
                                         onclick="return(confirm('are you sure to delete?'));event.preventDefault();
                                                  document.getElementById('category-delete-form').submit();"><i class="fa fa-trash btn btn-danger"></i></a>
