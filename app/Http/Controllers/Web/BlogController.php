@@ -4,13 +4,21 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\BlogPost;
+use App\Models\BlogCategory;
 
 class BlogController extends Controller
 {
     
     public function index()
     {
-        return view('web.blog.index');
+        $data =   [
+            'blogs' => BlogPost::all(),
+            'blog_categories' => BlogCategory::all(),
+        ];
+
+       // return response()->json($data);
+        return view('web.blog.index')->with($data);
     }
 
    
