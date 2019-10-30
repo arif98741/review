@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Package;
+use App\Models\Company;
+use App\Models\Reviewer;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,5 +19,7 @@ class DatabaseSeeder extends Seeder
 
           factory(Category::class, 8)->create();
           factory(Package::class, 8)->create();
+          factory(Company::class, 8)->create();
+          factory(Reviewer::class, 8)->create();
     }
 }

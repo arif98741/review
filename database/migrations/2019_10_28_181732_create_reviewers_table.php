@@ -14,13 +14,13 @@ class CreateReviewersTable extends Migration
     {
         Schema::create('reviewers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first_name');
-            $table->string('last_name');
+            $table->string('fullname');
+            $table->string('title');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('phone')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->string('image')->nullable();
-            $table->string('address')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
