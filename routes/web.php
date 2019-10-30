@@ -14,6 +14,13 @@ Route::get('/company',function(){
 });
 
 
+// Blog Section
+Route::namespace('Web')->group(function () { 
+
+    Route::group(['prefix' => 'blog'],function(){
+        Route::get('/','BlogController@index');
+    });
+});
 
 
 

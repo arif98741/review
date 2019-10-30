@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
@@ -33,10 +34,10 @@ class BlogPostController extends Controller
 
     public function store(Request $request)
     {
-       // dd($request->all())
         $blog = new BlogPost;
         $blog->title = $request->title;
         $blog->blog_category_id = $request->blog_category_id;
+        $blog->slug = Str::slug($request->title, '-');
         $blog->description = $request->description;
 
          if ($request->hasFile('image')) {
@@ -44,7 +45,7 @@ class BlogPostController extends Controller
             $blog->image = $this->uploadImage($request->file('image'));
         }
 
-        if (BlogPost::save()) {
+        if ($blog->save()) {
             Session::flash('success', 'Category inserted successful');
             return redirect(route('admin.blog.index'));
         }else{
@@ -56,24 +57,35 @@ class BlogPostController extends Controller
 
     public function edit($id)
     {
-        $category = BlogPost::find($id);
-        return view('admin.blog.edit')->with(compact('category'));
+        $data =   [
+            'blog_categories' => BlogCategory::orderBy('name','asc')->get(),
+            'blog' => BlogPost::find($id)
+       
+        ];
+        return view('admin.blog.edit')->with($data);
     }
 
   
     public function update(Request $request, $id)
     {
         $blog = BlogPost::find($id);
-        $blog->name = $request->name;
-        
+        $blog->title = $request->title;
+        $blog->blog_category_id = $request->blog_category_id;
+        $blog->slug = Str::slug($request->title, '-');
+        $blog->description = $request->description;
+
+        if ($request->hasFile('image')) {
+
+            $blog->image = $this->updateImage($request->file('image'),$blog);
+        }
+
         if ($blog->save()) {
-            # code...
-            Session::flash('success', 'Post updated successfully');
+            Session::flash('success', 'Category updated successful');
             return redirect(route('admin.blog.index'));
         }else{
-            Session::flash('error', 'Post update failed');
+            Session::flash('success', 'Category updated successful');
             return redirect(route('admin.blog.index'));
-        }
+        }  
     }
 
   
@@ -99,5 +111,18 @@ class BlogPostController extends Controller
         Image::make($image)->save($path);
         return 'image_' . $imageName;
     }
+
+    private function updateImage($image,$blog)
+    {
+        $blog_image = $blog->image;
+        unlink(storage_path('app/public/uploads/admin/blog/'.$blog_image));
+        $timestemp = time();
+        $imageName = $timestemp . '.' . $image->getClientOriginalExtension();
+        $path = public_path('storage/uploads/admin/blog/') . 'image_' . $imageName;
+        Image::make($image)->save($path);
+        return 'image_' . $imageName;
+    }
+
+    
 
 }

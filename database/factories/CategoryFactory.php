@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'category_name' => ucfirst($faker->text(10))
+        'category_name' => ucfirst($faker->text(10)),
+        'image'        => $faker->text(10) . $faker->randomElement(['.jpg', '.png', '.jpeg'])
     ];
 });
