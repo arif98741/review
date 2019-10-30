@@ -19,9 +19,10 @@ class CreateReviewersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('city')->nullable();
-            $table->string('country')->nullable();
+            $table->biginteger('country_id')->unsigned()->nullable();
             $table->string('image')->nullable();
             $table->rememberToken();
+            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -33,6 +34,8 @@ class CreateReviewersTable extends Migration
      */
     public function down()
     {
+        Schema::dropForeign('country_id');
         Schema::drop('reviewers');
+
     }
 }
