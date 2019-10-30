@@ -15,11 +15,11 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cat_id');
             $table->string('type');
-            $table->string('pac_duration');
-            $table->text('pac_descrip');
+            $table->string('duration');
+            $table->text('description');
             $table->string('price');
+            $table->string('duration_unit');
             $table->timestamps();
         });
     }

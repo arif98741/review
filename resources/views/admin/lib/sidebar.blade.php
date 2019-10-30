@@ -52,13 +52,50 @@
               
             </ul>
           </li>
+
+
+
+
+
+           <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                 Pricing plans
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="{{ route('admin.package.index') }}" class="nav-link">
+                  <i class="fas fa-list"></i>
+                  <p>Pricing list</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+              <a href="{{ route('admin.package.create') }}" class="nav-link">
+                  <i class="fas fa-plus"></i>
+                  <p>Add Pricing</p>
+                </a>
+              </li>
+
+              
+              
+            </ul>
+          </li>
+          
+
+
+
+
           
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tree"></i>
+              <i class="nav-icon fas fa-list"></i>
               <p>
-                UI Elements
+            ui
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
