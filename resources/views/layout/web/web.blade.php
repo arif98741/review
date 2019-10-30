@@ -26,7 +26,7 @@
     <link href="{{asset('asset/front/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('asset/front/css/style.css')}}" rel="stylesheet">
 	<link href="{{asset('asset/front/css/vendors.css')}}" rel="stylesheet">
-
+	  @stack('extra-css')
     <!-- YOUR CUSTOM CSS -->
     <link href="{{asset('asset/front/css/custom.css')}}" rel="stylesheet">
 

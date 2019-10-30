@@ -20,6 +20,12 @@ Route::namespace('Web')->group(function () {
     Route::group(['prefix' => 'blog'],function(){
         Route::get('/','BlogController@index');
     });
+
+    Route::get('about','PageController@about');
+    Route::get('help','PageController@help');
+    Route::get('contact','PageController@contact');
+    
+    
 });
 
 

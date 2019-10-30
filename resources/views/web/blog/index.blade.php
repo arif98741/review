@@ -24,17 +24,17 @@
 						<div class="col-md-6">
 							<article class="blog">
 								<figure>
-									<a href="blog-post.html"><img src="{{ asset('asset/front/img/blog.jpg') }}" alt="">
+									<a href="blog-post.html"><img src="{{asset('storage/uploads/admin/blog/'.$blog->image)}}" alt="">
 										<div class="preview"><span>Read more</span></div>
 									</a>
 								</figure>
 								<div class="post_info">
-									<small> {{ $blog->blog_category_id }}- 20 Nov. 2017</small>
+									<small> {{ $blog->blog_category->name }}- {{  date('d M, Y',strtotime($blog->created_at)) }}</small>
 									<h2><a href="blog-post.html">{{ $blog->title }} </a></h2>
-									<p>{{ $blog->description }}</p>
+									<p>{{ htmlspecialchars_decode($blog->description) }}</p>
 									<ul>
 										<li>
-											<div class="thumb"><img src="{{ asset('asset/front/img/blog.jpg') }}" alt=""></div> Admin
+											<div class="thumb"><img src="{{asset('storage/uploads/admin/blog/'.$blog->image)}}" alt=""></div> Admin
 										</li>
 										<li><i class="ti-comment"></i>20</li>
 									</ul>
@@ -89,13 +89,13 @@
 						<ul class="comments-list">
 
 
-								@foreach($blogs as $blog )
+								@foreach($latest_blogs as $blog )
 
 							<li>
 								<div class="alignleft">
-									<a href="#0"><img src="{{ asset('asset/front/img/blog.jpg') }}" alt=""></a>
+									<a href="#0"><img src="{{asset('storage/uploads/admin/blog/'.$blog->image)}}" alt="" ></a>
 								</div>
-								<small>{{ $blog->blog_category_id }}- 11.08.2016</small>
+								<small>{{ $blog->blog_category->name }}- {{  date('d-m-Y',strtotime($blog->created_at)) }}</small>
 								<h3><a href="#" title=""> {{ $blog->title }} </a></h3>
 							</li>
 
@@ -141,4 +141,7 @@
 	</main>
 	<!--/main-->
 
+@push('extra-css')
+  <link rel="stylesheet" href="{{asset('asset/front/css/blog.css')}}">
+@endpush
 @endsection

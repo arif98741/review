@@ -13,11 +13,12 @@ class BlogController extends Controller
     public function index()
     {
         $data =   [
-            'blogs' => BlogPost::all(),
+            'blogs' => BlogPost::with (['blog_category'])->orderBy('id','desc')->get(),
+            'latest_blogs' => BlogPost::inRandomOrder()->with(['blog_category'])->limit(3)->get(),
             'blog_categories' => BlogCategory::all(),
         ];
 
-       // return response()->json($data);
+       // return dd($data);
         return view('web.blog.index')->with($data);
     }
 

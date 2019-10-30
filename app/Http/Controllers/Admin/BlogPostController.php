@@ -108,7 +108,7 @@ class BlogPostController extends Controller
         $timestemp = time();
         $imageName = $timestemp . '.' . $image->getClientOriginalExtension();
         $path = public_path('storage/uploads/admin/blog/') . 'image_' . $imageName;
-        Image::make($image)->save($path);
+        Image::make($image)->fit(400,267)->save($path);
         return 'image_' . $imageName;
     }
 
