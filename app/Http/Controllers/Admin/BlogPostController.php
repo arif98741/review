@@ -40,7 +40,7 @@ class BlogPostController extends Controller
         $blog->slug = Str::slug($request->title, '-');
         $blog->description = $request->description;
 
-         if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
 
             $blog->image = $this->uploadImage($request->file('image'));
         }

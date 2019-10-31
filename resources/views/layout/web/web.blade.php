@@ -60,7 +60,7 @@
 		<nav id="menu" class="main-menu">
 			<ul>
 				<li><span><a href="index.html">Home</a></span></li>
-				<li><span><a href="row-listings-filterscol.html">Reviews</a></span></li>
+				<li><span><a href="{{ url('reviewer/reviews') }}">Reviews</a></span></li>
 				<li><span><a href="#0">Profile</a></span>
                     <ul>
                         <li><a href="user-dashboard.html">User Dashboard</a>
@@ -69,12 +69,12 @@
                     </ul>
                 
                 </li>
-				<li><span><a href="category-companies-listings-filterstop.html">Top Companies</a></span></li>
+				<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
 				<li><span><a href="#0">About</a></span>
 					<ul>
 						<!--<li><a href="companies-landing.html">Compannies Landing Page</a></li>
 						<li><a href="all-categories.html">Companies Categories Page</a></li>-->
-						<li><a href="about.html">About Us</a></li>
+						<li><a href="#">About Us</a></li>
 						<li><a href="help.html">Help Section</a></li>
 						<li><a href="contacts.html">Contacts</a></li>						
 						<!--<li><a href="404.html">404 page</a></li>-->
@@ -102,12 +102,12 @@
 					</a>
 					<div class="collapse show" id="collapse_ft_1">
 						<ul class="links">
-							<li><a href="about.html">About us</a></li>
+							<li><a href="{{ url('/about') }}">About us</a></li>
 							<!--<li><a href="#0">Faq</a></li>-->
-							<li><a href="help.html">Help</a></li>
+							<li><a href="{{ url('/help') }}">Help</a></li>
 							<li><a href="user-dashboard.html">My account</a></li>
 							<li><a href="register.html">Create account</a></li>
-							<li><a href="contacts.html">Contacts</a></li>
+							<li><a href="{{ url('/contact') }}">Contacts</a></li>
 						</ul>
 					</div>
 				</div>
@@ -262,6 +262,7 @@
     <script src="{{asset('asset/front/js/common_scripts.js')}}"></script>
 	<script src="{{asset('asset/front/js/functions.js')}}"></script>
 	<script src="{{asset('asset/front/assets/validate.js')}}"></script>
+		  @stack('extra-js')
 
 </body>
 

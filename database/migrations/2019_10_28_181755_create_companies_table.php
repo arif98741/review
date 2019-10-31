@@ -17,13 +17,13 @@ class CreateCompaniesTable extends Migration
             $table->string('company_name');
             $table->string('description');
             $table->string('first_name');
-            $table->string('last_name');
+            $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('website');
-            $table->string('phone')->nullable();
-            $table->string('image')->nullable();
-            $table->string('address')->nullable();
+            $table->string('phone');
+            $table->string('image');
+            $table->string('address');
             $table->rememberToken();
             $table->timestamps();
         });

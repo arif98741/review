@@ -10,29 +10,25 @@ class PageController extends Controller
 
     public function about()
     {
-    	$data =   [
+    	//$data =   [
            // 'categories' => Category::all(),
-        ];
+      //  ];
 
-    	//return view('web.home')->with($data);
+    	return view('web.page.about');
     }
 
     public function help()
     {
-    	$data =   [
-           // 'categories' => Category::all(),
-        ];
+    	
 
-    	//return view('web.home')->with($data);
+    	return view('web.page.help');
     }
 
     public function contact()
     {
-    	$data =   [
-           // 'categories' => Category::all(),
-        ];
+    	
 
-    	//return view('web.home')->with($data);
+    	return view('web.page.contact');
     }
 
     
