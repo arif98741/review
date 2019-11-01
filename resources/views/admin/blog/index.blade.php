@@ -46,7 +46,8 @@
                   <tr>
                     <th>Title</th>
                     <th>Category</th>
-                    <th>Slug</th>
+                     <th>slug</th>
+                    <th>image</th>
                     <th>Description</th>
                     <th>Action</th>
                   </tr>
@@ -59,18 +60,31 @@
                     <td>{{ $blog->title }}</td>
                     <td>{{ $blog->blog_category->name }}</td>
                     <td>{{ $blog->slug }}</td> 
+
+                    <td><img src="{{ url('storage/uploads/blog/'.$blog->image) }}" style="width: 100px; height: 100px; border-radius: 100%;" alt=""></td> 
+
                     <td>{{ substr($blog->description, 0,20) }}</td>
                     <td>
                       <a href="{{ route('admin.blog.edit',$blog->id) }}"><i class="fa fa-edit btn btn-primary"></i></a>
 
-                      <a href="{{ route('admin.blog.destroy',$blog->id) }}"
+
+
+                        <form action="{{ url('admin/blog/'.$blog->id) }}" method="POST" >
+                        @csrf
+                        @method('DELETE') 
+                        
+                          <button class="btn btn-danger" type="submit" >Delete</button>
+
+                       </form> 
+
+                      {{-- <a href="{{ route('admin.blog.destroy',$blog->id) }}"
                         onclick="return(confirm('are you sure to delete?'));event.preventDefault();
                         document.getElementById('blog-category-delete-form').submit();"><i class="fa fa-trash btn btn-danger"></i></a>
                         <form id="blog-category-delete-form" action="{{ route('admin.blog.destroy',$blog->id) }}" method="POST" style="display: none;">
                          @method('DELETE')
-                         {{--  @csrf --}}
+                        @csrf 
                          {{ csrf_field() }}
-                       </form>
+                       </form> --}}
                      </td>
 
                    </tr>

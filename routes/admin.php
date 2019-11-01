@@ -15,7 +15,7 @@ Route::namespace('Admin')->group(function () {
     Route::resource('category', 'CategoryController'); 
     Route::resource('package', 'PackageController'); 
     Route::resource('blog_category', 'BlogcategoryController'); 
-    Route::resource('blog', 'BlogPostController')->except(['show','destroy']); 
+    Route::resource('blog', 'BlogPostController');
     Route::resource('founder', 'AboutController'); 
-    Route::resource('founder/delete/{id}', 'AboutController@delete'); 
+    
 });

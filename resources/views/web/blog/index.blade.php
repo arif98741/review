@@ -24,7 +24,7 @@
 						<div class="col-md-6">
 							<article class="blog">
 								<figure>
-									<a href="blog-post.html"><img src="{{asset('storage/uploads/admin/blog/'.$blog->image)}}" alt="">
+									<a href="blog-post.html"><img src="{{url('storage/uploads/blog/'.$blog->image)}}" alt="">
 										<div class="preview"><span>Read more</span></div>
 									</a>
 								</figure>
@@ -34,7 +34,7 @@
 									<p>{{ htmlspecialchars_decode($blog->description) }}</p>
 									<ul>
 										<li>
-											<div class="thumb"><img src="{{asset('storage/uploads/admin/blog/'.$blog->image)}}" alt=""></div> Admin
+											<div class="thumb"><img src="{{url('storage/uploads/blog/'.$blog->image)}}" alt=""></div> Admin
 										</li>
 										<li><i class="ti-comment"></i>20</li>
 									</ul>
@@ -93,7 +93,7 @@
 
 							<li>
 								<div class="alignleft">
-									<a href="#0"><img src="{{asset('storage/uploads/admin/blog/'.$blog->image)}}" alt="" ></a>
+									<a href="#0"><img src="{{asset('storage/uploads/blog/'.$blog->image)}}" alt="" ></a>
 								</div>
 								<small>{{ $blog->blog_category->name }}- {{  date('d-m-Y',strtotime($blog->created_at)) }}</small>
 								<h3><a href="#" title=""> {{ $blog->title }} </a></h3>

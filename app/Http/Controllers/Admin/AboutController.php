@@ -71,10 +71,10 @@ class AboutController extends Controller
 
         if ($founder->save()) {
             Session::flash('success', 'Founder updated successful');
-            //return redirect(route('admin.founder.index'));
+            return redirect(route('admin.founder.index'));
         }else{
             Session::flash('success', 'Founder updated successful');
-            //return redirect(route('admin.founder.index'));
+            return redirect(route('admin.founder.index'));
         }  
     }
 
@@ -91,7 +91,7 @@ class AboutController extends Controller
 
     private function updateImage($request,$founder)
     {
-        dd($founder);
+        //dd($founder);
         
         if (file_exists("public/uploads/founder/".$founder->image)) {
 
@@ -109,17 +109,32 @@ class AboutController extends Controller
         return str_replace("public/uploads/founder/", '', $path);
     }
 
-    public function delete($id)
-    {
-       $founder = Founder::find($id);
-       if (file_exists("public/uploads/founder/".$founder->image)) {
+    // public function delete($id)
+    // {
+    //    $founder = Founder::find($id);
+    //    if (file_exists("public/uploads/founder/".$founder->image)) {
             
-            Storage::delete("public/uploads/founder/".$founder->image);
-        }
+    //         Storage::delete("public/uploads/founder/".$founder->image);
+    //     }
 
-       if ($founder->delete()) {
-        Session::flash('success', 'Deleted successfully');
-        return redirect(route('admin.founder.index'));
+    //    if ($founder->delete()) {
+    //     Session::flash('success', 'Deleted successfully');
+    //     return redirect(route('admin.founder.index'));
+    //     }else{
+    //         Session::flash('error', ' Delete failed');
+    //         return redirect(route('admin.founder.index'));
+    //     }
+           
+    // }
+
+       public function destroy($id)
+    {
+           $founder = Founder::findOrfail($id);
+
+           if ($founder->delete()) {
+            # code...
+            Session::flash('success', 'Deleted successfully');
+            return redirect(route('admin.founder.index'));
         }else{
             Session::flash('error', ' Delete failed');
             return redirect(route('admin.founder.index'));

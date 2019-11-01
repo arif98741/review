@@ -61,8 +61,19 @@
                     <td>
                       <a href="{{ route('admin.founder.edit',$founder->id) }}"><i class="fa fa-edit btn btn-primary"></i></a>
 
-                      <a href="{{ url('admin/founder/delete/'.$founder->id) }}" onclick="return(confirm('are you sure to delete?'))"><i class="fa fa-trash btn btn-danger"></i></a>
 
+
+                   <form action="{{ url('admin/founder/'.$founder->id) }}" method="POST" >
+                        @csrf
+                        @method('DELETE') 
+                        
+                          <button class="btn btn-danger" type="submit" >Delete</button>
+
+                       </form> 
+
+{{-- 
+                      <a href="{{ url('admin/founder/delete/'.$founder->id) }}" onclick="return(confirm('are you sure to delete?'))"><i class="fa fa-trash btn btn-danger"></i></a>
+ --}}
                     
                      </td>
 

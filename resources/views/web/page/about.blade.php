@@ -94,7 +94,7 @@
 				<a href="#0">
 					<div class="title">
 						<h4>{{ $founder->name }}<em>{{ $founder->designation }}</em></h4>
-					</div><img src="{{ asset('asset/front/img/1_carousel.jpg') }}" alt="">
+					</div><img src="{{ url('storage/uploads/founder/'.$founder->image) }}" alt="">
 				</a>
 			</div>
 			@endforeach
