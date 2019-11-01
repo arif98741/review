@@ -24,6 +24,12 @@ Route::namespace('Web')->group(function () {
     Route::get('about','PageController@about');
     Route::get('help','PageController@help');
     Route::get('contact','PageController@contact');
+    Route::get('company/companies-landing', 'HomeController@company_landing');
+
+    Route::get('company/category-companies-listing', 'HomeController@category_listing');
+
+    Route::get('user-dashboard', 'HomeController@user_dashboard');
+
     
     
 });

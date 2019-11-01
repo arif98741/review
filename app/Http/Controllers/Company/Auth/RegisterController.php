@@ -15,13 +15,13 @@ class RegisterController extends Controller
     use RegistersUsers;
 
    
-    protected $redirectTo = '/company/login';
+    //protected $redirectTo = '/company/login';
 
     
-    public function __construct()
-    {
-        $this->middleware('company.guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('company.guest');
+    // }
 
    
     protected function validator(array $data)
@@ -49,7 +49,7 @@ class RegisterController extends Controller
             $this->uploadImage($data['image']);
         }
 
-        exit;
+       
 
 
         return Company::create([

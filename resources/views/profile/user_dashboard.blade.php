@@ -1,5 +1,5 @@
-@extends('layout.web.web')
-@section('title','Homepage')
+@extends('layout.web.new_header')
+@section('title','user-dashboard')
 
 @section('content')
 	
@@ -10,7 +10,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<figure>
-								<img src="img/avatar4.jpg" alt="">
+								<img src="{{ asset ('asset/front/img/avatar4.jpg') }}" alt="">
 							</figure>
 							<h1>Mark Steinberg</h1>
 							<span>United States</span>
@@ -43,7 +43,7 @@
 					<div class="review_card">
 						<div class="row">
 							<div class="col-md-2 user_info">
-								<figure><img src="img/avatar4.jpg" alt=""></figure>
+								<figure><img src="{{ asset ('asset/front/img/avatar4.jpg') }}" alt=""></figure>
 								<h5>Review: "Good Electronics"</h5>
 							</div>
 							<div class="col-md-10 review_content">
@@ -66,7 +66,7 @@
 					<div class="review_card">
 						<div class="row">
 							<div class="col-md-2 user_info">
-								<figure><img src="img/avatar4.jpg" alt=""></figure>
+								<figure><img src="{{ asset ('asset/front/img/avatar4.jpg') }}" alt=""></figure>
 								<h5>Review: "Fnac"</h5>
 							</div>
 							<div class="col-md-10 review_content">
@@ -89,7 +89,7 @@
 					<div class="review_card">
 						<div class="row">
 							<div class="col-md-2 user_info">
-								<figure><img src="img/avatar4.jpg" alt=""></figure>
+								<figure><img src="{{ asset ('asset/front/img/avatar4.jpg') }}" alt=""></figure>
 								<h5>Review: "Da Alfredo"</h5>
 							</div>
 							<div class="col-md-10 review_content">

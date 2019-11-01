@@ -3,86 +3,96 @@
 <html lang="en">
 
 
-<!-- Mirrored from www.ansonika.com/vanno/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Feb 2019 09:18:09 GMT -->
+<!-- Mirrored from www.ansonika.com/vanno/category-companies-listings-filterstop.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Feb 2019 09:21:46 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="VANNO - Premium directory consumer reviews and listings template by Ansonika">
     <meta name="author" content="Ansonika">
-    <title>ReviewStore | Consumer Reviews and Listings Template.</title>
-
+	<title>ReviewStore | Consumer Reviews and Listings Template.</title>
+	
     <!-- Favicons-->
-    <link rel="shortcut icon" href="{{asset('asset/front/img/favicon.ico')}}" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{asset('asset/front/img/apple-touch-icon-57x57-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('asset/front/img/apple-touch-icon-72x72-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('asset/front/img/apple-touch-icon-114x114-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('asset/front/img/apple-touch-icon-144x144-precomposed.png')}}">
+    <link rel="shortcut icon" href="{{ asset('asset/front/img/favicon.ico')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('asset/front/img/apple-touch-icon-57x57-precomposed.png')}}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{ asset('asset/front/img/apple-touch-icon-72x72-precomposed.png')}}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{ asset('asset/front/img/apple-touch-icon-114x114-precomposed.png')}}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{ asset('asset/front/img/apple-touch-icon-144x144-precomposed.png')}}">
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="{{asset('asset/front/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('asset/front/css/style.css')}}" rel="stylesheet">
-	<link href="{{asset('asset/front/css/vendors.css')}}" rel="stylesheet">
-	  @stack('extra-css')
+    <link href="{{ asset('asset/front/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('asset/front/css/style.css')}}" rel="stylesheet">
+	<link href="{{ asset('asset/front/css/vendors.css')}}" rel="stylesheet">
+
     <!-- YOUR CUSTOM CSS -->
-    <link href="{{asset('asset/front/css/custom.css')}}" rel="stylesheet">
+    <link href="{{ asset('asset/front/css/custom.css')}}" rel="stylesheet">
 
 </head>
 
 <body>
-		
+	
 	<div id="page">
 		
-	<header class="header menu_fixed">
-		<div id="logo">
-			<a href="{{ url('/') }}">
-				<img src="{{asset('asset/front/img/Logo Sticky-01.svg')}}" width="140" height="35" alt="" class="logo_normal">
-				<img src="{{asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_sticky">
-			</a>
-		</div>
-		<ul id="top_menu">
-			<li><a href="write-review.html" class="btn_top">Write a Review</a></li>
-			<li><a href="{{ url('company/companies-landing') }}" class="btn_top company">For Companies</a></li>
-			<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
-		</ul>
-		<!-- /top_menu -->
-		<a href="#menu" class="btn_mobile">
-			<div class="hamburger hamburger--spin" id="hamburger">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
+	<header class="header_in">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-12">
+					<div id="logo">
+						<a href="index.html" style="padding-top: 20;>
+							<img src="{{ asset('asset/front/img/Logo Sticky-01.svg')}}" width="140" height="35" alt="" class="logo_normal" >
+							<img src="{{ asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_sticky">
+						</a>
+					</div>
 				</div>
-			</div>
-		</a>
-		<!-- /btn_mobile -->
-		<nav id="menu" class="main-menu">
-			<ul>
-				<li><span><a href="index.html">Home</a></span></li>
-				<li><span><a href="{{ url('reviewer/reviews') }}">Reviews</a></span></li>
+				<div class="col-lg-9 col-12">
+					<ul id="top_menu">
+						<li><a href="write-review.html" class="btn_top">Write a Review</a></li>
+						<li><a href="companies-landing.html" class="btn_top company">For Companies</a></li>
+						<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
+					</ul>
+					<!-- /top_menu -->
+					<a href="#menu" class="btn_mobile">
+						<div class="hamburger hamburger--spin" id="hamburger">
+							<div class="hamburger-box">
+								<div class="hamburger-inner"></div>
+							</div>
+						</div>
+					</a>
+					<nav id="menu" class="main-menu">
+						<ul>
+							<li><span><a href="index.html">Home</a></span></li>
+				<li><span><a href="row-listings-filterscol.html">Reviews</a></span></li>
 				<li><span><a href="#0">Profile</a></span>
                     <ul>
-                        <li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
+                        <li><a href="user-dashboard.html">User Dashboard</a>
                         </li>
                         <li><a href="user-settings.html">User Settings</a></li>
                     </ul>
                 
                 </li>
-				<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
-				<li><span><a href="#0">About</a></span>
+				<li><span><a href="category-companies-listings-filterstop.html">Top Companies</a></span></li>
 					<ul>
-						{{-- <li><a href="">Compannies Landing Page</a></li>
-						<li><a href="all-categories.html">Companies Categories Page</a></li> --}}
-						<li><a href="#">About Us</a></li>
+						<!--<li><a href="companies-landing.html">Compannies Landing Page</a></li>
+						<li><a href="all-categories.html">Companies Categories Page</a></li>
+						<li><a href="category-companies-listings-filterstop.html">Companies Listing Page</a></li>-->
+						<li><a href="about.html">About Us</a></li>
 						<li><a href="help.html">Help Section</a></li>
 						<li><a href="contacts.html">Contacts</a></li>						
 						<!--<li><a href="404.html">404 page</a></li>-->
 					</ul>
 				</li> 
+                <li><span><a href="blog.html">Blog</a></span></li>
 				<li class="d-block d-sm-none"><span><a href="write-review.html" class="btn_top">Write a review</a></span></li>
-			</ul>
-		</nav>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->		
 	</header>
 	<!-- /header -->
 	
