@@ -23,68 +23,40 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/reviewer/home';
+    protected $redirectTo = '/';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+  
     public function __construct()
     {
         $this->middleware('reviewer.guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+   
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'fullname' => 'required|max:255',
             'email' => 'required|email|max:255|unique:reviewers',
             'password' => 'required|min:6|confirmed',
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return Reviewer
-     */
+
     protected function create(array $data)
     {
         return Reviewer::create([
-            'name' => $data['name'],
+            'fullname' => $data['fullname'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
 
-    /**
-     * Show the application registration form.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function showRegistrationForm()
     {
         return view('reviewer.auth.register');
     }
 
-    /**
-     * Get the guard to be used during registration.
-     *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
-     */
     protected function guard()
     {
         return Auth::guard('reviewer');

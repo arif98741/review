@@ -52,8 +52,6 @@
 			<form class="form-horizontal" role="form" method="POST" action="{{ url('/reviewer/register') }}">
 				{{ csrf_field() }}
 
-
-				
 				<div class="form-group {{ $errors->has('fullname') ? ' has-error' : '' }}">
 					<input class="form-control" type="text" name="fullname" value="{{ old('fullname') }}" placeholder="Full Name">
 

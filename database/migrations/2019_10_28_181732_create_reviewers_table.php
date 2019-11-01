@@ -15,7 +15,7 @@ class CreateReviewersTable extends Migration
         Schema::create('reviewers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('fullname');
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->string('city')->nullable();
