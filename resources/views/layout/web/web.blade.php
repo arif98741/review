@@ -1,77 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
-
 <!-- Mirrored from www.ansonika.com/vanno/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 18 Feb 2019 09:18:09 GMT -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="VANNO - Premium directory consumer reviews and listings template by Ansonika">
-    <meta name="author" content="Ansonika">
-    <title>ReviewStore | Consumer Reviews and Listings Template.</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="VANNO - Premium directory consumer reviews and listings template by Ansonika">
+	<meta name="author" content="Ansonika">
+	<title>@yield('title') - ReviewStore</title>
 
-    <!-- Favicons-->
-    <link rel="shortcut icon" href="{{asset('asset/front/img/favicon.ico')}}" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{asset('asset/front/img/apple-touch-icon-57x57-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('asset/front/img/apple-touch-icon-72x72-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('asset/front/img/apple-touch-icon-114x114-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('asset/front/img/apple-touch-icon-144x144-precomposed.png')}}">
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="{{asset('asset/front/img/favicon.ico')}}" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="{{asset('asset/front/img/apple-touch-icon-57x57-precomposed.png')}}">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('asset/front/img/apple-touch-icon-72x72-precomposed.png')}}">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('asset/front/img/apple-touch-icon-114x114-precomposed.png')}}">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('asset/front/img/apple-touch-icon-144x144-precomposed.png')}}">
 
-    <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+	<!-- GOOGLE WEB FONT -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
-    <!-- BASE CSS -->
-    <link href="{{asset('asset/front/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('asset/front/css/style.css')}}" rel="stylesheet">
+	<!-- BASE CSS -->
+	<link href="{{asset('asset/front/css/bootstrap.min.css')}}" rel="stylesheet">
+	<link href="{{asset('asset/front/css/style.css')}}" rel="stylesheet">
 	<link href="{{asset('asset/front/css/vendors.css')}}" rel="stylesheet">
-	  @stack('extra-css')
-    <!-- YOUR CUSTOM CSS -->
-    <link href="{{asset('asset/front/css/custom.css')}}" rel="stylesheet">
+	@stack('extra-css')
+	<!-- YOUR CUSTOM CSS -->
+	<link href="{{asset('asset/front/css/custom.css')}}" rel="stylesheet">
 
 </head>
 
 <body>
-		
+
 	<div id="page">
 		
-	<header class="header menu_fixed">
-		<div id="logo">
-			<a href="{{ url('/') }}">
-				<img src="{{asset('asset/front/img/Logo Sticky-01.svg')}}" width="140" height="35" alt="" class="logo_normal">
-				<img src="{{asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_sticky">
-			</a>
-		</div>
-		<ul id="top_menu">
-			<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
-			<li><a href="{{ url('company/companies-landing') }}" class="btn_top company">For Companies</a></li>
-			<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
-		</ul>
-		<!-- /top_menu -->
-		<a href="#menu" class="btn_mobile">
-			<div class="hamburger hamburger--spin" id="hamburger">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
+		<header class="header menu_fixed">
+			<div id="logo">
+				<a href="{{ url('/') }}">
+					<img src="{{asset('asset/front/img/Logo Sticky-01.svg')}}" width="140" height="35" alt="" class="logo_normal">
+					<img src="{{asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_sticky">
+				</a>
 			</div>
-		</a>
-		<!-- /btn_mobile -->
-		<nav id="menu" class="main-menu">
-			<ul>
-				<li><span><a href="{{ url('/') }}">Home</a></span></li>
-				<li><span><a href="{{ url('reviewer/row-listing') }}">Reviews</a></span></li>
-				<li><span><a href="#0">Profile</a></span>
-                    <ul>
-                        <li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
-                        </li>
-                        <li><a href="user-settings.html">User Settings</a></li>
-                    </ul>
-                
-                </li>
-				<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
-				<li><span><a href="#">About</a></span>
-					<ul>
+			<ul id="top_menu">
+				<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
+				<li><a href="{{ url('company/companies-landing') }}" class="btn_top company">For Companies</a></li>
+				<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
+			</ul>
+			<!-- /top_menu -->
+			<a href="#menu" class="btn_mobile">
+				<div class="hamburger hamburger--spin" id="hamburger">
+					<div class="hamburger-box">
+						<div class="hamburger-inner"></div>
+					</div>
+				</div>
+			</a>
+			<!-- /btn_mobile -->
+			<nav id="menu" class="main-menu">
+				<ul>
+					<li><span><a href="{{ url('/') }}">Home</a></span></li>
+					<li><span><a href="{{ url('reviewer/row-listing') }}">Reviews</a></span></li>
+					<li><span><a href="#0">Profile</a></span>
+						<ul>
+							<li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
+							</li>
+							<li><a href="user-settings.html">User Settings</a></li>
+						</ul>
+
+					</li>
+					<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
+					<li><span><a href="#">About</a></span>
+						<ul>
 						{{-- <li><a href="">Compannies Landing Page</a></li>
 						<li><a href="all-categories.html">Companies Categories Page</a></li> --}}
 						<li><a href="{{ url('about') }}">About Us</a></li>
@@ -205,41 +203,52 @@
 		</div>
 	</footer>
 	<!--/footer-->
+</div>
+<!-- page -->
+
+<!-- Sign In Popup -->
+<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+	<div class="small-dialog-header">
+		<h3>Company Sign In</h3>
 	</div>
-	<!-- page -->
-	
-	<!-- Sign In Popup -->
-	<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
-		<div class="small-dialog-header">
-			<h3>Sign In</h3>
-		</div>
-		<form>
-			<div class="sign-in-wrapper">
-				<a href="#0" class="social_bt facebook">Login with Facebook</a>
+	<form method="POST" action="{{ url('/company/login') }}">
+		{{ csrf_field() }}
+		<div class="sign-in-wrapper">
+				{{-- <a href="#0" class="social_bt facebook">Login with Facebook</a>
 				<a href="#0" class="social_bt google">Login with Google</a>
-				<div class="divider"><span>Or</span></div>
-				<div class="form-group">
+				<div class="divider"><span>Or</span></div> --}}
+				<div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
 					<label>Email</label>
-					<input type="email" class="form-control" name="email" id="email">
+					<input type="email" class="form-control"  name="email" value="{{ old('email') }}" autofocus>
+					@if ($errors->has('email'))
+					<span class="help-block" style="color: red;">
+						<strong>{{ $errors->first('email') }}</strong>
+					</span>
+					@endif
 					<i class="icon_mail_alt"></i>
 				</div>
-				<div class="form-group">
+				<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 					<label>Password</label>
-					<input type="password" class="form-control" name="password" id="password" value="">
+					<input type="password" class="form-control"  name="password" id="password" placeholder="Password">
+					@if ($errors->has('password'))
+                        <span class="help-block" style="color: red;">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
 					<i class="icon_lock_alt"></i>
 				</div>
 				<div class="clearfix add_bottom_15">
 					<div class="checkboxes float-left">
 						<label class="container_check">Remember me
-						  <input type="checkbox">
-						  <span class="checkmark"></span>
+							<input type="checkbox">
+							<span class="checkmark"></span>
 						</label>
 					</div>
 					<div class="float-right mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
 				</div>
 				<div class="text-center"><input type="submit" value="Log In" class="btn_1 full-width"></div>
 				<div class="text-center">
-					Don’t have an account? <a href="register.html">Sign up</a>
+					Don’t have an account? <a href="{{ url('company/register') }}">Sign up</a>
 				</div>
 				<div id="forgot_pw">
 					<div class="form-group">
@@ -259,10 +268,10 @@
 	<div id="toTop"></div><!-- Back to top button -->
 	
 	<!-- COMMON SCRIPTS -->
-    <script src="{{asset('asset/front/js/common_scripts.js')}}"></script>
+	<script src="{{asset('asset/front/js/common_scripts.js')}}"></script>
 	<script src="{{asset('asset/front/js/functions.js')}}"></script>
 	<script src="{{asset('asset/front/assets/validate.js')}}"></script>
-		  @stack('extra-js')
+	@stack('extra-js')
 
 </body>
 

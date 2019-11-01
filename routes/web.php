@@ -27,12 +27,8 @@ Route::namespace('Web')->group(function () {
     Route::get('company/companies-landing', 'HomeController@company_landing');
     Route::get('reviewer/row-listing', 'HomeController@row_listings');
     Route::get('reviewer/reviews','HomeController@review');
-    
 
     Route::get('company/category-companies-listing', 'HomeController@category_listing');
-
-    
-
 
     Route::get('user-dashboard', 'HomeController@user_dashboard');
 

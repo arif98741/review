@@ -1,7 +1,5 @@
-
 @extends('layout.web.web')
 @section('title','companies_landing')
-
 @section('content')
 	<main>
 		<section class="hero_single version_company">

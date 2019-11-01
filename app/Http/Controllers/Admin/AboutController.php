@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Founder;
 use Session;
 use Image;
+use Storage;
 
 class AboutController extends Controller
 {
@@ -36,7 +37,7 @@ class AboutController extends Controller
         $founder->designation = $request->designation;
         if ($request->hasFile('image')) {
 
-            $founder->image = $this->uploadImage($request->file('image'));
+            $founder->image = $this->uploadImage($request,$founder);
         }
 
         if ($founder->save()) {
@@ -65,46 +66,60 @@ class AboutController extends Controller
         $founder->designation = $request->designation;
         if ($request->hasFile('image')) {
 
-            $founder->image = $this->updateImage($request->file('image'),$founder);
+            $founder->image = $this->updateImage($request,$founder);
         }
 
         if ($founder->save()) {
             Session::flash('success', 'Founder updated successful');
-            return redirect(route('admin.founder.index'));
+            //return redirect(route('admin.founder.index'));
         }else{
             Session::flash('success', 'Founder updated successful');
-            return redirect(route('admin.founder.index'));
+            //return redirect(route('admin.founder.index'));
         }  
     }
 
-    private function uploadImage($image)
+    private function uploadImage($request,$founder)
     {
-        $timestemp = time();
-        $imageName = $timestemp . '.' . $image->getClientOriginalExtension();
-        $path = public_path('storage/uploads/founder/') . 'founder_' . $imageName;
-        Image::make($image)->save($path);
-        return 'image_' . $imageName;
+        $filenameWithExt = $request->file('image')->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = 'founder'.'_'.time().'.'.$extension;
+        $path = $request->file('image')->storeAs('public/uploads/founder', $fileNameToStore);
+        return str_replace("public/uploads/founder/", '', $path);
+        
     }
 
-    private function updateImage($image,$founder)
+    private function updateImage($request,$founder)
     {
-        $founder_image = $founder->image;
-        unlink(storage_path('app/public/uploads/founder/'.$founder_image));
-        $timestemp = time();
-        $imageName = $timestemp . '.' . $image->getClientOriginalExtension();
-        $path = public_path('storage/uploads/founder/') . 'image_' . $imageName;
-        Image::make($image)->save($path);
-        return 'image_' . $imageName;
+        dd($founder);
+        
+        if (file_exists("public/uploads/founder/".$founder->image)) {
+
+            
+            Storage::delete("public/uploads/founder/".$founder->image);
+        
+        }
+
+
+        $filenameWithExt = $request->file('image')->getClientOriginalName();
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('image')->getClientOriginalExtension();
+        $fileNameToStore = 'founder'.'_'.time().'.'.$extension;
+        $path = $request->file('image')->storeAs('public/uploads/founder', $fileNameToStore);
+        return str_replace("public/uploads/founder/", '', $path);
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
-           $founder = Founder::findOrfail($id);
+       $founder = Founder::find($id);
+       if (file_exists("public/uploads/founder/".$founder->image)) {
+            
+            Storage::delete("public/uploads/founder/".$founder->image);
+        }
 
-           if ($founder->delete()) {
-            # code...
-            Session::flash('success', 'Deleted successfully');
-            return redirect(route('admin.founder.index'));
+       if ($founder->delete()) {
+        Session::flash('success', 'Deleted successfully');
+        return redirect(route('admin.founder.index'));
         }else{
             Session::flash('error', ' Delete failed');
             return redirect(route('admin.founder.index'));

@@ -1,5 +1,5 @@
 @extends('layout.web.web')
-@section('title','contact')
+@section('title','Contact')
 	
 @section('content')
 	

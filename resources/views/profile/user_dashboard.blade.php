@@ -1,5 +1,5 @@
-@extends('layout.web.new_header')
-@section('title','user-dashboard')
+@extends('layout.web.web')
+@section('title','User Dashboard')
 
 @section('content')
 	

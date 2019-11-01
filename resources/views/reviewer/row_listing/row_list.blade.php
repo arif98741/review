@@ -1,5 +1,5 @@
 @extends('layout.web.new_header')
-@section('title','row-list')
+@section('title','Reviews')
 
 @section('content')
 	

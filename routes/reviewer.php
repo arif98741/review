@@ -2,8 +2,6 @@
 
 Route::namespace('Reviewer')->group(function () { 
    
-   Route::get('write-review','ReviewController@write_review');
-   
+   Route::get('write-review','ReviewerController@write_review');
   
-    
 });

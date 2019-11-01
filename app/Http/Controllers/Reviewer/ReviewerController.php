@@ -13,5 +13,11 @@ class ReviewerController extends Controller
    		
    }
 
+   	public function review()
+    {
+
+    	return view('reviewer.review.reviews');
+    }
+
    
 }
