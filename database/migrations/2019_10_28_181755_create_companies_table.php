@@ -5,11 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCompaniesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('companies', function (Blueprint $table) {
@@ -22,7 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string('password');
             $table->string('website');
             $table->string('phone');
-            $table->string('image');
+            $table->string('image')->nullable()->default(null);
             $table->string('address');
             $table->rememberToken();
             $table->timestamps();

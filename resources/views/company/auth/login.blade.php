@@ -43,7 +43,7 @@
 	<div id="login">
 		<aside>
 			<figure>
-				<a href="index.html" style="padding-left: 20">
+				<a href="{{ url('/') }}" style="padding-left: 20">
 					<img src="{{ asset('asset/front/img/Logo Sticky-01.svg')}}" width="140" height="35" alt="" class="logo_normal" >
 					<img src="{{ asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_sticky">
 				</a>
