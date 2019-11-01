@@ -16,12 +16,13 @@ class RegisterController extends Controller
 
    
     //protected $redirectTo = '/company/login';
+    protected $redirectTo = '/';
 
     
-    // public function __construct()
-    // {
-    //     $this->middleware('company.guest');
-    // }
+    public function __construct()
+    {
+        $this->middleware('company.guest');
+    }
 
    
     protected function validator(array $data)
@@ -41,16 +42,6 @@ class RegisterController extends Controller
     
     protected function create(array $data)
     {
-        //dd($data);
-
-        $data = [];
-        if (array_key_exists('image', $data)) {
-
-            $this->uploadImage($data['image']);
-        }
-
-       
-
 
         return Company::create([
             'company_name' => $data['company_name'],
@@ -62,7 +53,6 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'address' => $data['address'],
             'password' => bcrypt($data['password']),
-            //'image' => bcrypt($data['image'])
         ]);
 
     }
@@ -70,18 +60,6 @@ class RegisterController extends Controller
     public function showRegistrationForm()
     {
         return view('company.auth.register');
-    }
-
-    private function uploadImage($image)
-    {
-        dd($image);
-
-
-        $timestemp = time();
-        $imageName = $timestemp . '.' . $image->getClientOriginalExtension();
-        $path = public_path('storage/uploads/company/') . 'image_' . $imageName;
-        Image::make($image)->fit(400,267)->save($path);
-        return 'image_' . $imageName;
     }
 
     protected function guard()

@@ -44,7 +44,7 @@
 			</a>
 		</div>
 		<ul id="top_menu">
-			<li><a href="write-review.html" class="btn_top">Write a Review</a></li>
+			<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
 			<li><a href="{{ url('company/companies-landing') }}" class="btn_top company">For Companies</a></li>
 			<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
 		</ul>
