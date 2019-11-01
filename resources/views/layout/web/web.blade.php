@@ -59,8 +59,8 @@
 		<!-- /btn_mobile -->
 		<nav id="menu" class="main-menu">
 			<ul>
-				<li><span><a href="index.html">Home</a></span></li>
-				<li><span><a href="{{ url('reviewer/reviews') }}">Reviews</a></span></li>
+				<li><span><a href="{{ url('/') }}">Home</a></span></li>
+				<li><span><a href="{{ url('reviewer/row-listing') }}">Reviews</a></span></li>
 				<li><span><a href="#0">Profile</a></span>
                     <ul>
                         <li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
