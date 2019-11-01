@@ -11,4 +11,6 @@ npm-debug.log
 yarn-error.log
 .phpintel
 .idea
+.phpintel
+git add . && git commit -m "blog changes backend" && git push
 
