@@ -23,9 +23,9 @@ class HomeController extends Controller
     	return view('company.companies.companies_landing');
     }
 
-     public function row_listings_filterscol()
+     public function row_listings()
     {
-    	return view('reviewer.row_listing.reviews');
+    	return view('reviewer.row_listing.row_list');
     }
 
     public function category_listing()
@@ -35,6 +35,12 @@ class HomeController extends Controller
      public function user_dashboard()
     {
     	return view('profile.user_dashboard');
+    }
+
+      public function review()
+    {
+
+        return view('reviewer.review.reviews');
     }
 
 

@@ -12,4 +12,6 @@ class ReviewerController extends Controller
    		return view('reviewer.review.write_review');
    		
    }
+
+   
 }

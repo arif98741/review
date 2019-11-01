@@ -49,8 +49,8 @@
 				</div>
 				<div class="col-lg-9 col-12">
 					<ul id="top_menu">
-						<li><a href="write-review.html" class="btn_top">Write a Review</a></li>
-						<li><a href="companies-landing.html" class="btn_top company">For Companies</a></li>
+						<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
+						<li><a href="{{ url('company/companies-landing') }}" class="btn_top company">For Companies</a></li>
 						<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
 					</ul>
 					<!-- /top_menu -->
@@ -63,29 +63,29 @@
 					</a>
 					<nav id="menu" class="main-menu">
 						<ul>
-							<li><span><a href="index.html">Home</a></span></li>
-				<li><span><a href="row-listings-filterscol.html">Reviews</a></span></li>
+							<li><span><a href="{{ url('/') }}">Home</a></span></li>
+				<li><span><a href="{{ url('reviewer/row-listing') }}">Reviews</a></span></li>
 				<li><span><a href="#0">Profile</a></span>
                     <ul>
-                        <li><a href="user-dashboard.html">User Dashboard</a>
+                        <li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
                         </li>
                         <li><a href="user-settings.html">User Settings</a></li>
                     </ul>
                 
                 </li>
-				<li><span><a href="category-companies-listings-filterstop.html">Top Companies</a></span></li>
+				<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
 					<ul>
 						<!--<li><a href="companies-landing.html">Compannies Landing Page</a></li>
 						<li><a href="all-categories.html">Companies Categories Page</a></li>
 						<li><a href="category-companies-listings-filterstop.html">Companies Listing Page</a></li>-->
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="help.html">Help Section</a></li>
-						<li><a href="contacts.html">Contacts</a></li>						
+						<li><a href="{{ url('about') }}">About Us</a></li>
+						<li><a href="{{ url('/help') }}">Help Section</a></li>
+						<li><a href="{{ url('/contact') }}">Contacts</a></li>						
 						<!--<li><a href="404.html">404 page</a></li>-->
 					</ul>
 				</li> 
-                <li><span><a href="blog.html">Blog</a></span></li>
-				<li class="d-block d-sm-none"><span><a href="write-review.html" class="btn_top">Write a review</a></span></li>
+                <li><span><a href="#">Blog</a></span></li>
+				<li class="d-block d-sm-none"><span><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a review</a></span></li>
 						</ul>
 					</nav>
 				</div>
