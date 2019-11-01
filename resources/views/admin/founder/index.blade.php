@@ -57,18 +57,30 @@
 
                     <td>{{ $founder->name }}</td>
                     <td>{{ $founder->designation }}</td>
-                    <td><img src="{{ url('storage/uploads/founder/'.$founder->image) }}" alt=""></td> 
+                    <td><img src="{{ asset('storage/uploads/founder/'.$founder->image) }}" alt=""></td> 
                     <td>
                       <a href="{{ route('admin.founder.edit',$founder->id) }}"><i class="fa fa-edit btn btn-primary"></i></a>
 
-                      <a href="{{ route('admin.founder.destroy',$founder->id) }}"
+
+
+
+
+                       <form action="{{ url('admin/founder/'.$founder->id) }}" method="POST" >
+                        @csrf
+                        @method('DELETE') 
+                        
+                          <button class="btn btn-danger" type="submit" >Delete</button>
+
+                       </form>
+
+                      {{-- <a href="{{ route('admin.founder.destroy',$founder->id) }}"
                         onclick="return(confirm('are you sure to delete?'));event.preventDefault();
                         document.getElementById('blog-category-delete-form').submit();"><i class="fa fa-trash btn btn-danger"></i></a>
                         <form id="blog-category-delete-form" action="{{ route('admin.founder.destroy',$founder->id) }}" method="POST" style="display: none;">
                          @method('DELETE')
-                         {{--  @csrf --}}
+                         @csrf 
                          {{ csrf_field() }}
-                       </form>
+                       </form> --}}
                      </td>
 
                    </tr>

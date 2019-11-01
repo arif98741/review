@@ -19,6 +19,8 @@ class AboutController extends Controller
             'founders' => Founder::all(),
        
         ];
+
+        //return response()->json($data);
         return view('admin.founder.index')->with($data);
     }
 
@@ -52,7 +54,7 @@ class AboutController extends Controller
             'founder' => Founder::find($id)
        
         ];
-        return view('admin.blog.edit')->with($data);
+        return view('admin.founder.edit')->with($data);
     }
 
   
@@ -93,6 +95,21 @@ class AboutController extends Controller
         $path = public_path('storage/uploads/founder/') . 'image_' . $imageName;
         Image::make($image)->save($path);
         return 'image_' . $imageName;
+    }
+
+    public function destroy($id)
+    {
+           $founder = Founder::findOrfail($id);
+
+           if ($founder->delete()) {
+            # code...
+            Session::flash('success', 'Deleted successfully');
+            return redirect(route('admin.founder.index'));
+        }else{
+            Session::flash('error', ' Delete failed');
+            return redirect(route('admin.founder.index'));
+        }
+           
     }
 
 
