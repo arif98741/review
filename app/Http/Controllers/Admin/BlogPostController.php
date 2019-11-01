@@ -107,7 +107,7 @@ class BlogPostController extends Controller
     {
         $timestemp = time();
         $imageName = $timestemp . '.' . $image->getClientOriginalExtension();
-        $path = public_path('storage/uploads/admin/blog/') . 'image_' . $imageName;
+        $path = public_path('storage/uploads/blog/') . 'image_' . $imageName;
         Image::make($image)->fit(400,267)->save($path);
         return 'image_' . $imageName;
     }
@@ -115,10 +115,10 @@ class BlogPostController extends Controller
     private function updateImage($image,$blog)
     {
         $blog_image = $blog->image;
-        unlink(storage_path('app/public/uploads/admin/blog/'.$blog_image));
+        unlink(storage_path('app/public/uploads/blog/'.$blog_image));
         $timestemp = time();
         $imageName = $timestemp . '.' . $image->getClientOriginalExtension();
-        $path = public_path('storage/uploads/admin/blog/') . 'image_' . $imageName;
+        $path = public_path('storage/uploads/blog/') . 'image_' . $imageName;
         Image::make($image)->save($path);
         return 'image_' . $imageName;
     }

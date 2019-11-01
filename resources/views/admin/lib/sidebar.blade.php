@@ -48,8 +48,7 @@
                 </a>
               </li>
 
-              
-              
+            
             </ul>
           </li>
 
@@ -138,13 +137,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route('admin.blog.create') }}" class="nav-link">
+              <a href="{{ route('admin.founder.create') }}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Add Founder</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="{{ route('admin.blog.index') }}" class="nav-link">
+              <a href="{{ route('admin.founder.index') }}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Founder list</p>
               </a>

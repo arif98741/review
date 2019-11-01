@@ -70,11 +70,11 @@
                 
                 </li>
 				<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
-				<li><span><a href="#0">About</a></span>
+				<li><span><a href="#">About</a></span>
 					<ul>
 						{{-- <li><a href="">Compannies Landing Page</a></li>
 						<li><a href="all-categories.html">Companies Categories Page</a></li> --}}
-						<li><a href="#">About Us</a></li>
+						<li><a href="{{ url('about') }}">About Us</a></li>
 						<li><a href="help.html">Help Section</a></li>
 						<li><a href="contacts.html">Contacts</a></li>						
 						<!--<li><a href="404.html">404 page</a></li>-->

@@ -16,4 +16,5 @@ Route::namespace('Admin')->group(function () {
     Route::resource('package', 'PackageController'); 
     Route::resource('blog_category', 'BlogcategoryController'); 
     Route::resource('blog', 'BlogPostController'); 
+    Route::resource('founder', 'AboutController'); 
 });
