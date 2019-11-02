@@ -20,6 +20,7 @@ class CreateCompaniesTable extends Migration
             $table->string('phone');
             $table->string('image')->nullable()->default(null);
             $table->string('address');
+            $table->tinyinteger('status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

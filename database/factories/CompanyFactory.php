@@ -17,7 +17,8 @@ $factory->define(Company::class, function (Faker $faker) {
         'password' =>  Hash::make('123456'),
         'phone' => $faker->phoneNumber,
         'image' => $faker->text(10).$faker->randomElement(['.jpg','.PNG','.jpeg','.gif']),
-        'address' => $faker->address
+        'address' => $faker->address,
+        'status' => $faker->randomElement([0,1])
     ];
 });
 

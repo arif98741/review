@@ -17,5 +17,7 @@ Route::namespace('Admin')->group(function () {
     Route::resource('blog_category', 'BlogcategoryController'); 
     Route::resource('blog', 'BlogPostController');
     Route::resource('founder', 'AboutController'); 
-    
+    Route::get('company/status/{status}/{id}','CompanyController@update_status');
+    Route::resource('company', 'CompanyController'); 
+
 });
