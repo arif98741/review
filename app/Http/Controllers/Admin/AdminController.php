@@ -21,6 +21,9 @@ class AdminController extends Controller
             'total_review' => Review::all()->count(),
             'total_category' => Category::all()->count(),
         ];
+
+
+        //return response()->json($data);
     	return view('admin.dashboard')->with($data);    
     }
 

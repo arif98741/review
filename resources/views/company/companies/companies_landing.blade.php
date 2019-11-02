@@ -42,35 +42,35 @@
 				<h5 class="text-center add_bottom_30">More than 1000 companies use ReviewStore!</h5>
 				<div id="brands" class="owl-carousel owl-theme">
 				<div class="item">
-					<a href="#"><img src="img/brands/1_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/1_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 				<div class="item">
-					<a href="#"><img src="img/brands/2_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/2_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 				<div class="item">
-					<a href="#"><img src="img/brands/3_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/3_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 				<div class="item">
-					<a href="#"><img src="img/brands/4_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/4_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 				<div class="item">
-					<a href="#"><img src="img/brands/5_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/5_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 				<div class="item">
-					<a href="#"><img src="img/brands/6_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/6_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 				<div class="item">
-					<a href="#"><img src="img/brands/7_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/7_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 				<div class="item">
-					<a href="#"><img src="img/brands/8_c.jpg" alt=""></a>
+					<a href="#"><img src="{{ asset('asset/front/img/brands/8_c.jpg') }}" alt=""></a>
 				</div>
 				<!-- /item -->
 			</div>
@@ -147,7 +147,7 @@
 		    <div class="wrapper">
                 <div class="container">
                     <h3>Get started now with ReviewStore...improve your business.</h3>
-                    <a class="btn_1 medium" href="pricing.html">Join ReviewStore Now!</a>
+                    <a class="btn_1 medium" href="{{ url('company/pricing') }}">Join ReviewStore Now!</a>
                 </div>
 			</div>
 		</div>

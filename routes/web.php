@@ -26,6 +26,8 @@ Route::namespace('Web')->group(function () {
     Route::get('help','PageController@help');
     Route::get('contact','PageController@contact');
     Route::get('company/companies-landing', 'HomeController@company_landing');
+
+    Route::get('company/pricing', 'HomeController@pricing');
     Route::get('reviewer/row-listing', 'HomeController@row_listings');
     Route::get('reviewer/reviews','HomeController@review');
 

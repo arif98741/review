@@ -197,13 +197,15 @@
 			
 			<div class="isotope-wrapper">
 				
+
+				@foreach($companies as $company)
 				<div class="company_listing isotope-item high">
 					<div class="row">
 						<div class="col-md-9">
 							<div class="company_info">
-								<figure><a href="reviews-page.html"><img src="{{ asset('asset/front/img/brands/1.png')}}" alt=""></a></figure>
-								<h3>American Coffee</h3>
-								<p>Tale tollit vocent quo ut. Eu vix menandri persequeris accommodare, nam ei virtute dissentiet. Nec prima indoctum ei, vis eu justo dictas tamquam...</p>
+								<figure><a href="reviews-page.html"><img src="{{ asset('storage/uploads/company/'.$company->image)}}" alt=""></a></figure>
+								<h3>{{ $company->company_name }}</h3>
+								<p> {{ $company->description }}</p>
 							</div>
 						</div>
 						<div class="col-md-3">
@@ -214,102 +216,12 @@
 						</div>
 					</div>
 				</div>
+
+				@endforeach
 				<!-- /company_listing -->
 				
-				<div class="company_listing isotope-item high">
-					<div class="row">
-						<div class="col-md-9">
-							<div class="company_info">
-								<figure><a href="reviews-page.html"><img src="{{ asset('asset/front/img/brands/2.png')}}" alt=""></a></figure>
-								<h3>Timberland</h3>
-								<p>Tale tollit vocent quo ut. Eu vix menandri persequeris accommodare, nam ei virtute dissentiet. Nec prima indoctum ei, vis eu justo dictas tamquam...</p>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="text-center float-lg-right">
-							<span class="rating"><strong>Based on 265 reviews</strong><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></span>
-							<a href="reviews-page.html" class="btn_1 small">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /company_listing -->
 				
-				<div class="company_listing isotope-item low">
-					<div class="row">
-						<div class="col-md-9">
-							<div class="company_info">
-								<figure><a href="reviews-page.html"><img src="{{ asset('asset/front/img/brands/3.png')}}" alt=""></a></figure>
-								<h3>Elite</h3>
-								<p>Tale tollit vocent quo ut. Eu vix menandri persequeris accommodare, nam ei virtute dissentiet. Nec prima indoctum ei, vis eu justo dictas tamquam...</p>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="text-center float-lg-right">
-							<span class="rating"><strong>Based on 265 reviews</strong><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><i class="icon_star empty"></i></span>
-							<a href="reviews-page.html" class="btn_1 small">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /company_listing -->
 				
-				<div class="company_listing isotope-item low">
-					<div class="row">
-						<div class="col-md-9">
-							<div class="company_info">
-								<figure><a href="reviews-page.html"><img src="{{ asset('asset/front/img/brands/5.png')}}" alt=""></a></figure>
-								<h3>Williams</h3>
-								<p>Tale tollit vocent quo ut. Eu vix menandri persequeris accommodare, nam ei virtute dissentiet. Nec prima indoctum ei, vis eu justo dictas tamquam...</p>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="text-center float-lg-right">
-							<span class="rating"><strong>Based on 265 reviews</strong><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><i class="icon_star empty"></i><i class="icon_star empty"></i></span>
-							<a href="reviews-page.html" class="btn_1 small">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /company_listing -->
-				
-				<div class="company_listing isotope-item high">
-					<div class="row">
-						<div class="col-md-9">
-							<div class="company_info">
-								<figure><a href="reviews-page.html"><img src="{{ asset('asset/front/img/brands/6.png')}}" alt=""></a></figure>
-								<h3>Fairlane</h3>
-								<p>Tale tollit vocent quo ut. Eu vix menandri persequeris accommodare, nam ei virtute dissentiet. Nec prima indoctum ei, vis eu justo dictas tamquam...</p>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="text-center float-lg-right">
-							<span class="rating"><strong>Based on 265 reviews</strong><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i></span>
-							<a href="reviews-page.html" class="btn_1 small">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /company_listing -->
-				
-				<div class="company_listing isotope-item high">
-					<div class="row">
-						<div class="col-md-9">
-							<div class="company_info">
-								<figure><a href="reviews-page.html"><img src="{{ asset('asset/front/img/brands/8.png')}}" alt=""></a></figure>
-								<h3>Fairlane Clothing</h3>
-								<p>Tale tollit vocent quo ut. Eu vix menandri persequeris accommodare, nam ei virtute dissentiet. Nec prima indoctum ei, vis eu justo dictas tamquam...</p>
-							</div>
-						</div>
-						<div class="col-md-3">
-							<div class="text-center float-lg-right">
-							<span class="rating"><strong>Based on 265 reviews</strong><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i></span>
-							<a href="reviews-page.html" class="btn_1 small">Read more</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /company_listing -->
 			
 			</div>
 			<!-- /isotope-wrapper -->
