@@ -59,11 +59,16 @@
 							<li class="{{ ($blogs->currentPage() == 1) ? ' disabled' : '' }}">
 								<a href="{{ $blogs->url(1) }}" class="prev" title="previous page">&#10094;</a>
 							</li>
+
+
 							@for ($i = 1; $i <= $blogs->lastPage(); $i++)
 							<li class="{{ ($blogs->currentPage() == $i) ? ' active' : '' }}">
 								<a href="{{ $blogs->url($i) }}">{{ $i }}</a>
 							</li>
 							@endfor
+
+
+							
 							<li class="{{ ($blogs->currentPage() == $blogs->lastPage()) ? ' disabled' : '' }}">
 								<a href="{{ $blogs->url($blogs->currentPage()+1) }}"  title="next page" class="next">&#10095;</a>
 							</li>
@@ -116,7 +121,7 @@
 					</div>
 					@foreach($blog_categories as $blog_category )
 					<ul class="cats">
-						<li><a href="#">{{ $blog_category->name }} <span>({{ $blog_category}})</span></a></li>
+						<li><a href="#">{{ $blog_category->name }} <span>({{ $blog_category->posts->count() }})</span></a></li>
 					</ul>
 					@endforeach
 				</div>

@@ -15,7 +15,7 @@ class BlogController extends Controller
         $data =   [
             'blogs' => Post::with (['blog_category'])->orderBy('id','desc')->paginate(6),
             'latest_blogs' => Post::inRandomOrder()->with(['blog_category'])->limit(3)->get(),
-            'blog_categories' => Category::with (['posts'])->orderBy('name','desc')->get(),
+            'blog_categories' => Category::with (['posts'])->orderBy('name','desc')->get()
         ];
 
         return view('web.blog.index')->with($data);
