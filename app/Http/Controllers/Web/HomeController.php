@@ -22,7 +22,7 @@ class HomeController extends Controller
     }
 
 
-     public function company_landing()
+    public function company_landing()
     {
           
            
@@ -34,11 +34,13 @@ class HomeController extends Controller
     public function pricing()
     {
         
-           $data =   [
-             'packages' => Package::all(),
+        $data =   [
+             'standards' => Package::where(['type'=>'standard'])->limit(3)->get(),
+             'extendeds' => Package::where(['type'=>'extended'])->limit(3)->get(),
+             'premiums' => Package::where(['type'=>'premium'])->limit(3)->get()
          ];
 
-         // return response()->json($data);
+        return $data;
         return view('company.companies.pricing')->with($data);
     }
 
