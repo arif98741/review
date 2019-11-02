@@ -4,56 +4,33 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\BlogPost;
-use App\Models\BlogCategory;
+use App\Models\BlogPost as Post;
+use App\Models\BlogCategory as Category;
 
 class BlogController extends Controller
 {
-    
+
     public function index()
     {
         $data =   [
-            'blogs' => BlogPost::with (['blog_category'])->orderBy('id','desc')->get(),
-            'latest_blogs' => BlogPost::inRandomOrder()->with(['blog_category'])->limit(3)->get(),
-            'blog_categories' => BlogCategory::all(),
+            'blogs' => Post::with (['blog_category'])->orderBy('id','desc')->paginate(6),
+            'latest_blogs' => Post::inRandomOrder()->with(['blog_category'])->limit(3)->get(),
+            'blog_categories' => Category::with (['posts'])->orderBy('name','desc')->get(),
         ];
 
-       // return dd($data);
         return view('web.blog.index')->with($data);
     }
 
-   
-    public function create()
-    {
-        //
-    }
 
-   
-    public function store(Request $request)
+    public function show_by_slug($slug)
     {
-        //
-    }
-
-   
-    public function show($id)
-    {
-        //
-    }
-
-   
-    public function edit($id)
-    {
-        //
-    }
-
-   
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        $data = array(
+            'blog' => Post::with(['blog_category', 'admin', 'comment'])->where('slug', $slug)->firstOrfail(),
+            'recent_posts' => Post::with(['blog_category', 'admin'])->orderBy('id', 'desc')->limit(3)->get(),
+            'blog_categories' => Category::with (['posts'])->orderBy('name','desc')->get(),
+            'postComment' => Post::with(['comment'])->where('slug', $slug)->get()
+        );
+       // return $data['blog_categories'];
+        return view('web.blog.single', $data);
     }
 }

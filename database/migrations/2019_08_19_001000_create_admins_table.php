@@ -5,11 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateAdminsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
@@ -25,11 +21,7 @@ class CreateAdminsTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+   
     public function down()
     {
         Schema::drop('admins');

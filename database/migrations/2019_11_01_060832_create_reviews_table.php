@@ -13,6 +13,7 @@ class CreateReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('review_text');
+            $table->string('rating',3);
             $table->unsignedBigInteger('reviwer_id')->nullable();
             $table->unsignedBigInteger('company_id');
             $table->string('image')->nullable();

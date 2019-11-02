@@ -6,6 +6,7 @@ use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use App\Models\BlogTag;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Company;
 use App\Models\Founder;
 use App\Models\Package;
@@ -25,6 +26,7 @@ class DatabaseSeeder extends Seeder
           factory(Reviewer::class, 8)->create();
           factory(BlogCategory::class, 8)->create();
           factory(BlogPost::class, 8)->create();
+          factory(Comment::class, 10)->create();
           factory(BlogTag::class, 8)->create();
           factory(Founder::class, 8)->create();
           factory(Review::class, 10)->create();

@@ -9,8 +9,12 @@ class BlogCategory extends Model
 {
     protected $guarded = [];
 
-    public function blog_posts()
+    public function posts()
     {
-        return $this->hasMany(BlogCategory::class);
+        return $this->hasMany(BlogPost::class);
     }
+
+   
+
+    
 }

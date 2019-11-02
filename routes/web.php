@@ -19,6 +19,7 @@ Route::namespace('Web')->group(function () {
 
     Route::group(['prefix' => 'blog'],function(){
         Route::get('/','BlogController@index');
+        Route::get('/{slug}', 'BlogController@show_by_slug')->name('blog.show.slug');
     });
 
     Route::get('about','PageController@about');
