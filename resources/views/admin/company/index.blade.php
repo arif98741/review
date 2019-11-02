@@ -65,12 +65,12 @@
 
                       @if($company->status == 1)
 
-                      <a href="{{ url('admin/company/status/'.(0).'',$company->id) }}"><i class="fa fa-check btn btn-success"></i></a>
+                      <a href="{{ url('admin/company/status/'.(0).'',$company->id) }}"><i class="fa fa-check btn btn-sm btn-success"></i></a>
                       @else
-                       <a href="{{ url('admin/company/status/'.(1).'',$company->id) }}"><i class="fa fa-times btn btn-warning"></i></a>
+                       <a href="{{ url('admin/company/status/'.(1).'',$company->id) }}"><i class="fa fa-times btn btn-sm btn-warning"></i></a>
                       @endif
 
-                      <a href="{{ route('admin.company.edit',$company->id) }}"><i class="fa fa-edit btn btn-primary"></i></a>
+                      <a href="{{ route('admin.company.edit',$company->id) }}"><i class="fa fa-edit btn btn-sm btn-primary"></i></a>
 
                   {{--  <form action="{{ url('admin/company/'.$company->id) }}" method="POST" >
                         @csrf

@@ -167,7 +167,7 @@
 							<ul>
 								<li><a href="#0"><i class="ti-facebook"></i></a></li>
 								<li><a href="#0"><i class="ti-twitter-alt"></i></a></li>
-								<li><a href="#0"><i class="ti-google"></i></a></li>
+								
 								<li><a href="#0"><i class="ti-pinterest"></i></a></li>
 								<li><a href="#0"><i class="ti-instagram"></i></a></li>
 							</ul>

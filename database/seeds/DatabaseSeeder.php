@@ -11,6 +11,7 @@ use App\Models\Founder;
 use App\Models\Package;
 use App\Models\Review;
 use App\Models\Reviewer;
+use App\Models\Setting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +28,6 @@ class DatabaseSeeder extends Seeder
           factory(BlogTag::class, 8)->create();
           factory(Founder::class, 8)->create();
           factory(Review::class, 10)->create();
+          factory(Setting::class, 1)->create();
     }
 }

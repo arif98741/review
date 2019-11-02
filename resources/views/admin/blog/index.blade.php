@@ -46,7 +46,6 @@
                   <tr>
                     <th>Title</th>
                     <th>Category</th>
-                     <th>slug</th>
                     <th>image</th>
                     <th>Description</th>
                     <th>Action</th>
@@ -59,7 +58,6 @@
 
                     <td>{{ $blog->title }}</td>
                     <td>{{ $blog->blog_category->name }}</td>
-                    <td>{{ $blog->slug }}</td> 
 
                     <td><img src="{{ url('storage/uploads/blog/'.$blog->image) }}" style="width: 100px; height: 100px; border-radius: 100%;" alt=""></td> 
 
@@ -73,7 +71,7 @@
                         @csrf
                         @method('DELETE') 
                         
-                          <button class="btn btn-danger" type="submit" >Delete</button>
+                          <button class="btn btn-danger" type="submit" ><i class="fa fa-trash"></i></button>
 
                        </form> 
 
