@@ -23,14 +23,15 @@
                     </ul>
                 </nav>
                 <div class="content">
-
-                    
                     <section id="section-1">
                         <div class="row">
+
+
+                            @foreach($standards as $standard)
                             <div class="col-lg-4">
                                 <div class="box_pricing">
-                                    <h4>1 Month</h4>
-                                    <p>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut.</p>
+                                    <h4>{{ $standard->duration }} Month</h4>
+                                    <p>{{ $standard->description }}</p>
                                     <ul>
                                         <li><strong>Lorem</strong> consulatu qui ne</li>
                                         <li><strong>Erat legere</strong> fabulas has ut</li>
@@ -39,48 +40,15 @@
                                     </ul>
                                     <hr>
                                     <div class="price">
-                                        <sup>$</sup>15<em>/mo</em>
+                                        <sup>$</sup> {{ $standard->price }}<em>/{{ $standard->duration_unit }}mo</em>
                                     </div>
                                     <a href="{{ url('company/register') }}">Create Account</a>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="box_pricing">
-                                    <div class="ribbon">
-                                        <span class="top_selling">Top selling</span>
-                                    </div>
-                                    <h4>6 Months</h4>
-                                    <p>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut.</p>
-                                    <ul>
-                                        <li><strong>Lorem</strong> consulatu qui ne</li>
-                                        <li><strong>Erat legere</strong> fabulas has ut</li>
-                                        <li><strong>Constituto</strong> deterruisset</li>
-                                        <li><strong>Omnis</strong> justo gloriatur</li>
-                                    </ul>
-                                    <hr>
-                                    <div class="price">
-                                        <sup>$</sup>95<em>/6 months</em>
-                                    </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box_pricing">
-                                    <h4>12 Months</h4>
-                                    <p>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut.</p>
-                                    <ul>
-                                        <li><strong>Lorem</strong> consulatu qui ne</li>
-                                        <li><strong>Erat legere</strong> fabulas has ut</li>
-                                        <li><strong>Constituto</strong> deterruisset</li>
-                                        <li><strong>Omnis</strong> justo gloriatur</li>
-                                    </ul>
-                                    <hr>
-                                    <div class="price">
-                                        <sup>$</sup>130<em>/year</em>
-                                    </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
-                                </div>
-                            </div>
+
+                            @endforeach
+                          
+                          
                         </div>
                         <!-- /row -->
                     </section>
@@ -88,10 +56,12 @@
 
                     <section id="section-2">
                         <div class="row">
+
+                       @foreach($extendeds as $extended)
                             <div class="col-lg-4">
                                 <div class="box_pricing">
-                                    <h4>1 Month</h4>
-                                    <p>Diam timeam iracundia eu per, vide error id nec, est veniam equidem nonumes in. Has offendit oportere ea. Errem denique corpora ut vis, veniam fierent recteque vim no, in oblique forensibus accommodare cum.</p>
+                                    <h4>{{ $extended->duration }} Month</h4>
+                                    <p>{{ $extended->description }}</p>
                                     <ul>
                                         <li><strong>Lorem</strong> consulatu qui ne</li>
                                         <li><strong>Erat legere</strong> fabulas has ut</li>
@@ -100,60 +70,27 @@
                                     </ul>
                                     <hr>
                                     <div class="price">
-                                        <sup>$</sup>45<em>/mo</em>
+                                        <sup>$</sup>{{ $extended->price }}<em>/{{ $extended->duration_unit }}mo</em>
                                     </div>
                                     <a href="{{ url('company/register') }}">Create Account</a>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="box_pricing">
-                                    <h4>6 Months</h4>
-                                    <p>Diam timeam iracundia eu per, vide error id nec, est veniam equidem nonumes in. Has offendit oportere ea. Errem denique corpora ut vis, veniam fierent recteque vim no, in oblique forensibus accommodare cum.</p>
-                                    <ul>
-                                        <li><strong>Lorem</strong> consulatu qui ne</li>
-                                        <li><strong>Erat legere</strong> fabulas has ut</li>
-                                        <li><strong>Constituto</strong> deterruisset</li>
-                                        <li><strong>Omnis</strong> justo gloriatur</li>
-                                    </ul>
-                                    <hr>
-                                    <div class="price">
-                                        <sup>$</sup>125<em>/6 months</em>
-                                    </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box_pricing">
-									<div class="ribbon">
-                                        <span class="top_selling">Top selling</span>
-                                    </div>
-                                    <h4>12 Months</h4>
-                                    <p>Diam timeam iracundia eu per, vide error id nec, est veniam equidem nonumes in. Has offendit oportere ea. Errem denique corpora ut vis, veniam fierent recteque vim no, in oblique forensibus accommodare cum.</p>
-                                    <ul>
-                                        <li><strong>Lorem</strong> consulatu qui ne</li>
-                                        <li><strong>Erat legere</strong> fabulas has ut</li>
-                                        <li><strong>Constituto</strong> deterruisset</li>
-                                        <li><strong>Omnis</strong> justo gloriatur</li>
-                                    </ul>
-                                    <hr>
-                                    <div class="price">
-                                        <sup>$</sup>140<em>/year</em>
-                                    </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
-                                </div>
-                            </div>
+                             @endforeach
+
                         </div>
                         <!-- /row -->
                     </section>
                     <section id="section-3">
                         <div class="row">
+
+                         @foreach($premiums as $premium)
                             <div class="col-lg-4">
                                 <div class="box_pricing">
 									<div class="ribbon">
                                         <span class="top_selling">Top selling</span>
                                     </div>
-                                    <h4>1 Month</h4>
-                                    <p>Iriure nostrud dignissim id vix, et velit soluta mei. Velit labore intellegat ad mel, ullum nobis quo in, rebum nihil malorum vix ex.</p>
+                                    <h4>{{ $premium->duration }} Month</h4>
+                                    <p>{{ $premium->description }}</p>
                                     <ul>
                                         <li><strong>Lorem</strong> consulatu qui ne</li>
                                         <li><strong>Erat legere</strong> fabulas has ut</li>
@@ -162,45 +99,14 @@
                                     </ul>
                                     <hr>
                                     <div class="price">
-                                        <sup>$</sup>45<em>/mo</em>
+                                        <sup>$</sup>{{ $premium->price }}<em>/{{ $premium->duration_unit }}mo</em>
                                     </div>
                                     <a href="{{ url('company/register') }}">Create Account</a>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="box_pricing">
-                                    <h4>6 Months</h4>
-                                    <p>Iriure nostrud dignissim id vix, et velit soluta mei. Velit labore intellegat ad mel, ullum nobis quo in, rebum nihil malorum vix ex.</p>
-                                    <ul>
-                                        <li><strong>Lorem</strong> consulatu qui ne</li>
-                                        <li><strong>Erat legere</strong> fabulas has ut</li>
-                                        <li><strong>Constituto</strong> deterruisset</li>
-                                        <li><strong>Omnis</strong> justo gloriatur</li>
-                                    </ul>
-                                    <hr>
-                                    <div class="price">
-                                        <sup>$</sup>140<em>/6 months</em>
-                                    </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="box_pricing">
-                                    <h4>12 Months</h4>
-                                    <p>Iriure nostrud dignissim id vix, et velit soluta mei. Velit labore intellegat ad mel, ullum nobis quo in, rebum nihil malorum vix ex.</p>
-                                    <ul>
-                                        <li><strong>Lorem</strong> consulatu qui ne</li>
-                                        <li><strong>Erat legere</strong> fabulas has ut</li>
-                                        <li><strong>Constituto</strong> deterruisset</li>
-                                        <li><strong>Omnis</strong> justo gloriatur</li>
-                                    </ul>
-                                    <hr>
-                                    <div class="price">
-                                        <sup>$</sup>210<em>/year</em>
-                                    </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
-                                </div>
-                            </div>
+                             @endforeach
+                           
+                           
                         </div>
                         <!-- /row -->
                     </section>

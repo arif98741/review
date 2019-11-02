@@ -40,7 +40,7 @@ class HomeController extends Controller
              'premiums' => Package::where(['type'=>'premium'])->limit(3)->get()
          ];
 
-        return $data;
+       // return $data;
         return view('company.companies.pricing')->with($data);
     }
 
