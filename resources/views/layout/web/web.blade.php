@@ -73,8 +73,8 @@
 						{{-- <li><a href="">Compannies Landing Page</a></li>
 						<li><a href="all-categories.html">Companies Categories Page</a></li> --}}
 						<li><a href="{{ url('about') }}">About Us</a></li>
-						<li><a href="help.html">Help Section</a></li>
-						<li><a href="contacts.html">Contacts</a></li>						
+						<li><a href="{{ url('help') }}">Help Section</a></li>
+						<li><a href="{{ url('contact') }}">Contacts</a></li>						
 						<!--<li><a href="404.html">404 page</a></li>-->
 					</ul>
 				</li> 
