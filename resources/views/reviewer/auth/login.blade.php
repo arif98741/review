@@ -41,6 +41,7 @@
 	<!-- End Preload -->
 	
 	<div id="login">
+
 		<aside>
 			<figure>
 				<a href="{{ url('/') }}" style="padding-left: 20">
@@ -56,6 +57,7 @@
 				</div>
 				<div class="divider"><span>Or</span></div> --}}
 
+				<h4>Reviewer Login</h4>
 
 				<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 					<input type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
