@@ -63,7 +63,7 @@
 						<ul>
 							<li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
 							</li>
-							<li><a href="user-settings.html">User Settings</a></li>
+							<li><a href="{{ url('reviewer/setting') }}">User Settings</a></li>
 						</ul>
 
 					</li>

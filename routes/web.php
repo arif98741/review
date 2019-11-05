@@ -14,6 +14,7 @@ Route::get('/company',function(){
 });
 
 
+
 // Blog Section
 Route::namespace('Web')->group(function () { 
 
@@ -34,6 +35,7 @@ Route::namespace('Web')->group(function () {
     Route::get('company/category-companies-listing', 'HomeController@category_listing');
 
     Route::get('user-dashboard', 'HomeController@user_dashboard');
+    Route::get('reviewer/setting','Reviewer\ReviewerController@setting');
 
     
     
