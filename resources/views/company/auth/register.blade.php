@@ -48,7 +48,7 @@
 					<a href="#0" class="social_bt google">Register with Google</a>
 				</div>
 				<div class="divider"><span>Or</span></div> --}}
-			<h4>Reviewer Registration</h4>
+			<h4>Company Registration</h4>
 				<form class="form-horizontal" role="form" method="POST" action="{{ url('/company/register') }}"  enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<div class="form-group {{ $errors->has('company_name') ? ' has-error' : '' }}">
