@@ -31,7 +31,7 @@
 							<div class="post_info">
 								<small> {{ $blog->blog_category->name }}- {{  date('d M, Y',strtotime($blog->created_at)) }}</small>
 								<h2><a href="{{ route('blog.show.slug',$blog->slug) }}">{{ $blog->title }} </a></h2>
-								<p>{{ htmlspecialchars_decode($blog->description) }}</p>
+								<p>{{ htmlspecialchars_decode(substr($blog->description, 0,100)) }}</p>
 								<ul>
 									<li>
 										<div class="thumb"><img src="{{url('storage/uploads/blog/'.$blog->image)}}" alt=""></div> Admin

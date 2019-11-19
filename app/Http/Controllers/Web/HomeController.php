@@ -16,6 +16,7 @@ class HomeController extends Controller
     {
     	$data =   [
             'categories' => Category::all(),
+           // 'reviews' => Review::all(),
         ];
 
     	return view('web.home')->with($data);
@@ -24,9 +25,7 @@ class HomeController extends Controller
 
     public function company_landing()
     {
-          
-           
-
+        
     	return view('company.companies.companies_landing');
     }
 
@@ -40,7 +39,6 @@ class HomeController extends Controller
              'premiums' => Package::where(['type'=>'premium'])->limit(3)->get()
          ];
 
-       // return $data;
         return view('company.companies.pricing')->with($data);
     }
 

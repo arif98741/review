@@ -31,12 +31,12 @@
 						<textarea class="form-control" style="height: 180px;" placeholder="Write your review to help others learn about this online business"></textarea>
 					</div>
 					<div class="form-group">
-						<label>Add your photo (optional)</label>
+						<label>Add you invoice photo (required)</label>
 						<div class="fileupload"><input type="file" name="fileupload" accept="image/*"></div>
 					</div>
 					<div class="form-group">
 						<div class="checkboxes float-left add_bottom_15 add_top_15">
-							<label class="container_check">Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his.
+							<label class="container_check">Your review will be justified and then published to website . Please stay with usYour review will be justified and then published to website . Please stay with us Your review will be justified and then published to website . Please stay with us  <br>
 								<input type="checkbox">
 								<span class="checkmark"></span>
 							</label>
@@ -89,4 +89,4 @@
 	<!-- /container -->
 </main>
 <!--/main-->
-@endsecion
+@endsection

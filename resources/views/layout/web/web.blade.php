@@ -37,14 +37,32 @@
 		<header class="header menu_fixed">
 			<div id="logo">
 				<a href="{{ url('/') }}">
-					<img src="{{asset('asset/front/img/Logo Sticky-01.svg')}}" width="140" height="35" alt="" class="logo_normal">
+					<img src="{{asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_normal">
 					<img src="{{asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_sticky">
 				</a>
 			</div>
 			<ul id="top_menu">
-				<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
+
+				@if(!Auth::guard('reviewer')->check())
+				<li><a href="{{ url('reviewer/login') }}" class="btn_top">Write a Review</a></li>
 				<li><a href="{{ url('company/companies-landing') }}" class="btn_top company">For Companies</a></li>
-				<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
+				<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In" style="color: #000;">Sign In</a>
+				</li>
+
+				@else
+				<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
+				<li><a href="{{ url('/reviewer/logout') }}"
+					onclick="event.preventDefault();
+					document.getElementById('reviwer-logout-form').submit();"
+					class="login" title="Logout" style="color: #fff;">Logout</a>
+
+					<form id="reviwer-logout-form" action="{{ url('/reviewer/logout') }}" method="POST" style="display: none;">
+						{{ csrf_field() }}
+					</form>
+
+				</li>
+				@endif
+
 			</ul>
 			<!-- /top_menu -->
 			<a href="#menu" class="btn_mobile">
@@ -59,6 +77,7 @@
 				<ul>
 					<li><span><a href="{{ url('/') }}">Home</a></span></li>
 					<li><span><a href="{{ url('reviewer/row-listing') }}">Reviews</a></span></li>
+					@if(Auth::guard('reviewer')->check())
 					<li><span><a href="#0">Profile</a></span>
 						<ul>
 							<li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
@@ -67,6 +86,7 @@
 						</ul>
 
 					</li>
+					@endif
 					<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
 					<li><span><a href="#">About</a></span>
 						<ul>
@@ -74,11 +94,11 @@
 						<li><a href="all-categories.html">Companies Categories Page</a></li> --}}
 						<li><a href="{{ url('about') }}">About Us</a></li>
 						<li><a href="{{ url('help') }}">Help Section</a></li>
-						<li><a href="{{ url('contact') }}">Contacts</a></li>						
+						<li><a href="{{ url('contact') }}">Contact</a></li>						
 						<!--<li><a href="404.html">404 page</a></li>-->
 					</ul>
 				</li> 
-				<li class="d-block d-sm-none"><span><a href="write-review.html" class="btn_top">Write a review</a></span></li>
+				<li class="d-block d-sm-none"><span><a href="#" class="btn_top">Write a review</a></span></li>
 			</ul>
 		</nav>
 	</header>
@@ -204,9 +224,19 @@
 	</footer>
 	<!--/footer-->
 </div>
+@php
+$current = url()->current();
+$explode = explode('/', $current);
+
+@endphp
+
 <!-- page -->
 
 <!-- Sign In Popup -->
+{{-- start --}}
+
+@if(end($explode) == 'companies-landing')
+
 <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
 	<div class="small-dialog-header">
 		<h3>Company Sign In</h3>
@@ -231,10 +261,10 @@
 					<label>Password</label>
 					<input type="password" class="form-control"  name="password" id="password" placeholder="Password">
 					@if ($errors->has('password'))
-                        <span class="help-block" style="color: red;">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
+					<span class="help-block" style="color: red;">
+						<strong>{{ $errors->first('password') }}</strong>
+					</span>
+					@endif
 					<i class="icon_lock_alt"></i>
 				</div>
 				<div class="clearfix add_bottom_15">
@@ -263,6 +293,69 @@
 		</form>
 		<!--form -->
 	</div>
+
+	@else
+
+	<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+		<div class="small-dialog-header">
+			<h3>Reviewer Sign In</h3>
+		</div>
+		<form method="POST" action="{{ url('/reviewer/login') }}">
+			{{ csrf_field() }}
+			<div class="sign-in-wrapper">
+				{{-- <a href="#0" class="social_bt facebook">Login with Facebook</a>
+				<a href="#0" class="social_bt google">Login with Google</a>
+				<div class="divider"><span>Or</span></div> --}}
+				<div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+					<label>Email</label>
+					<input type="email" class="form-control"  name="email" value="{{ old('email') }}" autofocus>
+					@if ($errors->has('email'))
+					<span class="help-block" style="color: red;">
+						<strong>{{ $errors->first('email') }}</strong>
+					</span>
+					@endif
+					<i class="icon_mail_alt"></i>
+				</div>
+				<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+					<label>Password</label>
+					<input type="password" class="form-control"  name="password" id="password" placeholder="Password">
+					@if ($errors->has('password'))
+					<span class="help-block" style="color: red;">
+						<strong>{{ $errors->first('password') }}</strong>
+					</span>
+					@endif
+					<i class="icon_lock_alt"></i>
+				</div>
+				<div class="clearfix add_bottom_15">
+					<div class="checkboxes float-left">
+						<label class="container_check">Remember me
+							<input type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="float-right mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
+				</div>
+				<div class="text-center"><input type="submit" value="Log In" class="btn_1 full-width"></div>
+				<div class="text-center">
+					Don’ts have an account? <a href="{{ url('reviewer/register') }}">Sign up</a>
+				</div>
+				<div id="forgot_pw">
+					<div class="form-group">
+						<label>Please confirm login email below</label>
+						<input type="email" class="form-control" name="email_forgot" id="email_forgot">
+						<i class="icon_mail_alt"></i>
+					</div>
+					<p>You will receive an email containing a link allowing you to reset your password to a new preferred one.</p>
+					<div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
+				</div>
+			</div>
+		</form>
+		<!--form -->
+	</div>
+	
+	@endif
+
+	{{-- end --}}
 	<!-- /Sign In Popup -->
 	
 	<div id="toTop"></div><!-- Back to top button -->

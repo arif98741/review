@@ -14,10 +14,11 @@
             <li class="breadcrumb-item"><a href="{{ url('admin/dashboard') }}">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('admin.blog.index') }}">Blog list</a></li>
             
-            <li class="breadcrumb-item active">Add Blog</li>
+            <li class="breadcrumb-item active ">Add Blog</li>
           </ol>
         </div>
       </div>
+     
     </div><!-- /.container-fluid -->
   </section>
 

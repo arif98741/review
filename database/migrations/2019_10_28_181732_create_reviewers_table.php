@@ -18,6 +18,7 @@ class CreateReviewersTable extends Migration
             $table->string('title')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('contact')->nullable();
             $table->string('city')->nullable();
             $table->biginteger('country_id')->unsigned()->nullable();
             $table->string('image')->nullable();

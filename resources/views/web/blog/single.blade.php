@@ -22,13 +22,13 @@
 			<div class="row">
 				<div class="col-lg-9">
 					<div class="singlepost">
-						<figure><img alt="" class="img-fluid" src="img/blog-single.jpg"></figure>
+						<figure><img alt="" class="img-fluid" style="width: 100%" src="{{url('storage/uploads/blog/'.$blog->image)}}"></figure>
 						<h2>{{ $blog->blog_title }}</h2>
 						<div class="postmeta">
 							<ul>
 								<li><a href="#"><i class="ti-folder"></i> Category</a></li>
 								<li><a href="#"><i class="ti-calendar"></i> {{ date('d-m-Y',strtotime($blog->created_at)) }}</a></li>
-								<li><a href="#"><i class="ti-user"></i> {{ $blog->admin->name }}</a></li>
+								<li><a href="#"><i class="ti-user"></i> {{ $blog->admin }}</a></li>
 								<li><a href="#"><i class="ti-comment"></i> ({{ $blog->commentt }}) Comments</a></li>
 							</ul>
 						</div>
