@@ -1,18 +1,18 @@
 @extends('layout.web.web')
 @section('title','companies_landing')
 @section('content')
-	<main>
-		<section class="hero_single version_company">
-			<div class="wrapper">
-				<div class="container">
-					<h3>The Power<br>of your most passionate customers</h3>
-					<p>ReviewStore helps grow your business using customer reviews!</p>
-				</div>
+<main>
+	<section class="hero_single version_company">
+		<div class="wrapper">
+			<div class="container">
+				<h3>The Power<br>of your most passionate customers</h3>
+				<p>ReviewStore helps grow your business using customer reviews!</p>
 			</div>
-		</section>
-		<!-- /hero_single -->
-		
-		<div class="bg_color_1">
+		</div>
+	</section>
+	<!-- /hero_single -->
+	
+	<div class="bg_color_1">
 		<div class="container margin_60_35">
 			<div class="row">
 				<div class="col-lg-4">
@@ -41,70 +41,70 @@
 			<div class="margin_60">
 				<h5 class="text-center add_bottom_30">More than 1000 companies use ReviewStore!</h5>
 				<div id="brands" class="owl-carousel owl-theme">
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/1_c.jpg') }}" alt=""></a>
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/1_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/2_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/3_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/4_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/5_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/6_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/7_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
+					<div class="item">
+						<a href="#"><img src="{{ asset('asset/front/img/brands/8_c.jpg') }}" alt=""></a>
+					</div>
+					<!-- /item -->
 				</div>
-				<!-- /item -->
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/2_c.jpg') }}" alt=""></a>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/3_c.jpg') }}" alt=""></a>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/4_c.jpg') }}" alt=""></a>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/5_c.jpg') }}" alt=""></a>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/6_c.jpg') }}" alt=""></a>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/7_c.jpg') }}" alt=""></a>
-				</div>
-				<!-- /item -->
-				<div class="item">
-					<a href="#"><img src="{{ asset('asset/front/img/brands/8_c.jpg') }}" alt=""></a>
-				</div>
-				<!-- /item -->
-			</div>
-			<!-- /carousel -->
+				<!-- /carousel -->
 			</div>
 		</div>
 		<!-- /container -->
-		</div>
-		<!-- /bg_color_1 -->
-		
-		<div class="feat_blocks">
+	</div>
+	<!-- /bg_color_1 -->
+	
+	<div class="feat_blocks">
 		<div class="container-fluid h-100">
-		  <div class="row h-100 justify-content-center align-items-center">
-			<div class="col-md-6 p-0">
-			  		<div class="block_1"><img src="img/company_info_graphic_1.svg" alt="" class="img-fluid"></div>
-			</div>
-			<div class="col-md-6 p-0">
-				<div class="block_2">
-					<h3>Increase conversions with the power of your customers</h3>
-					<p>Mucius doctus constituto pri at, ne cetero postulant pro. At vix utinam corpora, ea oblique moderatius usu. Vix id viris consul honestatis, an constituto deterruisset consectetuer pro.</p>
-					<!--<a href="pricing.html" class="btn_1">View Pricing Plans</a>-->
+			<div class="row h-100 justify-content-center align-items-center">
+				<div class="col-md-6 p-0">
+					<div class="block_1"><img src="img/company_info_graphic_1.svg" alt="" class="img-fluid"></div>
 				</div>
-			</div>
-			   
-		  </div> 
-		<!-- /row -->
+				<div class="col-md-6 p-0">
+					<div class="block_2">
+						<h3>Increase conversions with the power of your customers</h3>
+						<p>Mucius doctus constituto pri at, ne cetero postulant pro. At vix utinam corpora, ea oblique moderatius usu. Vix id viris consul honestatis, an constituto deterruisset consectetuer pro.</p>
+						<!--<a href="pricing.html" class="btn_1">View Pricing Plans</a>-->
+					</div>
+				</div>
+				
+			</div> 
+			<!-- /row -->
 		</div>
 		<!-- /container -->
-		</div>
-		<!-- /feat_blocks -->
-		
-		<div class="bg_color_1">
-			<div class="container margin_60_35">
-				<div class="main_title_2">
+	</div>
+	<!-- /feat_blocks -->
+	
+	<div class="bg_color_1">
+		<div class="container margin_60_35">
+			<div class="main_title_2">
 				<h2>Features</h2>
 				<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
 			</div>
@@ -138,23 +138,22 @@
 				</div>
 			</div>
 			<!-- /row -->
-			</div>
-			<!-- /container -->
 		</div>
-		<!-- /bg_color_1 -->
-		
-		<div class="call_section_2">
-		    <div class="wrapper">
-                <div class="container">
-                    <h3>Get started now with ReviewStore...improve your business.</h3>
-                    <a class="btn_1 medium" href="{{ url('company/pricing') }}">Join ReviewStore Now!</a>
-                </div>
-			</div>
-		</div>
-		<!-- /call_section_2 -->
-
-	</main>
-	<!-- /main -->
-	@endsection
-
+		<!-- /container -->
+	</div>
+	<!-- /bg_color_1 -->
 	
+	<div class="call_section_2">
+		<div class="wrapper">
+			<div class="container">
+				<h3>Get started now with ReviewStore...improve your business.</h3>
+				<a class="btn_1 medium" href="{{ url('company/pricing') }}">Join ReviewStore Now!</a>
+			</div>
+		</div>
+	</div>
+	<!-- /call_section_2 -->
+
+</main>
+<!-- /main -->
+@endsection
+

@@ -62,6 +62,23 @@
 						<i class="ti-user"></i>
 					</div> 
 
+					<div class="form-group {{ $errors->has('company_name') ? ' has-error' : '' }}">
+						<select name="category_id" id="" class="form-control" required="">
+							<option value="" disabled="" selected="">Select Category</option>
+							@foreach($categories as $category)
+
+							<option value="{{ $category->id }}">{{ $category->category_name }}</option>
+							@endforeach
+						</select>
+						@if ($errors->has('company_name'))
+						<span class="help-block">
+							<strong>{{ $errors->first('company_name') }}</strong>
+						</span>
+						@endif
+					</div> 
+
+					
+
 					<div class="form-group {{ $errors->has('first_name') ? ' has-error' : '' }}">
 						<input class="form-control" type="text" name="first_name" value="{{ old('first_name') }}" placeholder=" First Name">
 
@@ -83,18 +100,6 @@
 						@endif
 						<i class="ti-user"></i>
 					</div>
-
-
-					<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
-						<input class="form-control" type="text" name="description" value="{{ old('description') }}"  placeholder="Description ">
-
-						@if ($errors->has('description'))
-						<span class="help-block">
-							<strong>{{ $errors->first('description') }}</strong>
-						</span>
-						@endif
-						<i class="ti-user"></i>
-					</div> 
 
 					<div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
 						<input class="form-control" type="email" name="email" value="{{ old('email') }}" placeholder="Email">
@@ -162,6 +167,18 @@
 						@endif
 						<i class="ti-user"></i>
 					</div> 
+
+					<div class="form-group {{ $errors->has('description') ? ' has-error' : '' }}">
+						<textarea class="form-control" type="text" name="description" value="{{ old('description') }}"  placeholder="Description "></textarea>
+
+						@if ($errors->has('description'))
+						<span class="help-block">
+							<strong>{{ $errors->first('description') }}</strong>
+						</span>
+						@endif
+						
+					</div>
+
 					
 
 					<div id="pass-info" class="clearfix"></div>

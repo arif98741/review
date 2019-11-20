@@ -41,4 +41,9 @@ class Company extends Authenticatable
     {
         $this->notify(new CompanyResetPassword($token));
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class)->withDefault();
+    }
 }

@@ -18,7 +18,7 @@ class RedirectIfReviewer
 	public function handle($request, Closure $next, $guard = 'reviewer')
 	{
 	    if (Auth::guard($guard)->check()) {
-	        return redirect('reviewer/home');
+	        return redirect('/');
 	    }
 
 	    return $next($request);

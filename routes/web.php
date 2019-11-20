@@ -84,6 +84,9 @@ Route::group(['prefix' => 'company'], function () {
   Route::post('/password/reset', 'Company\Auth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'Company\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'Company\Auth\ResetPasswordController@showResetForm');
+  Route::get('register/package/{id}', 'Company\CompanyController@select_package');
+  Route::get('profile/{id}/{slug}', 'Company\CompanyController@profile');
+
 });
 
 // auth routes end

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Company;
 use App\Models\Package;
+use Session;
 
 
 
@@ -14,6 +15,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+      //echo Session::get('selected_package_id'); exit;
+
     	$data =   [
             'categories' => Category::all(),
            // 'reviews' => Review::all(),

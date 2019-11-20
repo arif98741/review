@@ -11,6 +11,8 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('company_name');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('package_id')->nullable();
             $table->string('description');
             $table->string('first_name');
             $table->string('last_name')->nullable();
@@ -23,6 +25,8 @@ class CreateCompaniesTable extends Migration
             $table->tinyinteger('status')->default(1);
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('set null')->onUpdate('cascade');
         });
     }
 
@@ -34,5 +38,7 @@ class CreateCompaniesTable extends Migration
     public function down()
     {
         Schema::drop('companies');
+        Schema::dropForeign('category_id');
+        Schema::dropForeign('package_id');
     }
 }

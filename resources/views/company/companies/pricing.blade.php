@@ -42,7 +42,7 @@
                                     <div class="price">
                                         <sup>$</sup> {{ $standard->price }}<em>/{{ $standard->duration_unit }}mo</em>
                                     </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
+                                    <a href="{{ url('company/register/package/'.$standard->id) }}">Create Account</a>
                                 </div>
                             </div>
 
@@ -72,7 +72,7 @@
                                     <div class="price">
                                         <sup>$</sup>{{ $extended->price }}<em>/{{ $extended->duration_unit }}mo</em>
                                     </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
+                                    <a href="{{ url('company/register/package/'.$extended->id) }}">Create Account</a>
                                 </div>
                             </div>
                              @endforeach
@@ -101,7 +101,7 @@
                                     <div class="price">
                                         <sup>$</sup>{{ $premium->price }}<em>/{{ $premium->duration_unit }}mo</em>
                                     </div>
-                                    <a href="{{ url('company/register') }}">Create Account</a>
+                                    <a href="{{ url('company/register/package/'.$premium->id) }}">Create Account</a>
                                 </div>
                             </div>
                              @endforeach

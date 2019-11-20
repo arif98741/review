@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Company\Auth;
 
-use App\Models\Company;
-use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Company;
+use App\Models\Package;
+use App\Models\Category;
+use Validator;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -42,9 +45,10 @@ class RegisterController extends Controller
     
     protected function create(array $data)
     {
-
         return Company::create([
             'company_name' => $data['company_name'],
+            'category_id' => $data['category_id'],
+            'package_id' => Session::get('selected_package_id'),
             'description' => $data['description'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
@@ -59,7 +63,12 @@ class RegisterController extends Controller
     
     public function showRegistrationForm()
     {
-        return view('company.auth.register');
+        $data = [
+            'categories' => Category::all(),
+            'packages' => Package::all(),
+        ];
+
+        return view('company.auth.register')->with($data);
     }
 
     protected function guard()

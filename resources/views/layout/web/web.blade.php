@@ -43,23 +43,34 @@
 			</div>
 			<ul id="top_menu">
 
-				@if(!Auth::guard('reviewer')->check())
+				@if(!Auth::guard('reviewer')->check() && !Auth::guard('company')->check())
 				<li><a href="{{ url('reviewer/login') }}" class="btn_top">Write a Review</a></li>
 				<li><a href="{{ url('company/companies-landing') }}" class="btn_top company">For Companies</a></li>
 				<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In" style="color: #000;">Sign In</a>
 				</li>
-
-				@else
+				@elseif(Auth::guard('reviewer')->check())
 				<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
 				<li><a href="{{ url('/reviewer/logout') }}"
 					onclick="event.preventDefault();
-					document.getElementById('reviwer-logout-form').submit();"
+					document.getElementById('reviewer-logout-form').submit();"
 					class="login" title="Logout" style="color: #fff;">Logout</a>
 
-					<form id="reviwer-logout-form" action="{{ url('/reviewer/logout') }}" method="POST" style="display: none;">
+					<form id="reviewer-logout-form" action="{{ url('/reviewer/logout') }}" method="POST" style="display: none;">
 						{{ csrf_field() }}
 					</form>
 
+				</li>
+
+				@elseif(Auth::guard('company')->check())
+				<li><a href="{{ url('company/profile/'.Auth::guard('company')->user()->id.'/'.strtolower(str_replace(' ','-',Auth::guard('company')->user()->company_name))) }}" class="btn_top">Company Profile</a></li>
+				<li><a href="{{ url('/company/logout') }}"
+					onclick="event.preventDefault();
+					document.getElementById('company-logout-form').submit();"
+					class="login" title="Logout" style="color: #fff;">Logout</a>
+
+					<form id="company-logout-form" action="{{ url('/company/logout') }}" method="POST" style="display: none;">
+						{{ csrf_field() }}
+					</form>
 				</li>
 				@endif
 
@@ -123,8 +134,14 @@
 							<li><a href="{{ url('/about') }}">About us</a></li>
 							<!--<li><a href="#0">Faq</a></li>-->
 							<li><a href="{{ url('/help') }}">Help</a></li>
-							<li><a href="user-dashboard.html">My account</a></li>
-							<li><a href="register.html">Create account</a></li>
+							@if(Auth::guard('reviewer')->check())
+							<li><a href="{{ url('reviewer/profile') }}">My account</a></li>
+
+							@else
+							<li><a href="{{ url('reviewer/register') }}">Create account</a></li>
+							@endif
+
+							
 							<li><a href="{{ url('/contact') }}">Contacts</a></li>
 						</ul>
 					</div>
