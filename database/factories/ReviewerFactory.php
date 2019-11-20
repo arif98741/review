@@ -16,7 +16,7 @@ $factory->define(Reviewer::class, function (Faker $faker) {
         'password' =>  Hash::make('123456'),
         'city' => $faker->city,
         'country_id' => Country::all()->random(),
-        'image' => $faker->text(10).$faker->randomElement(['.jpg','.PNG','.jpeg','.gif']),
+        'image' 		=>  str_replace("storage/uploads/reviewer\\","",ltrim(strstr($faker->image('public/storage/uploads/reviewer',  640, 480, null, true), "/"),  "/"))
     ];
 });
 

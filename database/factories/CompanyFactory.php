@@ -20,7 +20,7 @@ $factory->define(Company::class, function (Faker $faker) {
         'website' => 'www.'.$faker->domainName,
         'password' =>  Hash::make('123456'),
         'phone' => $faker->phoneNumber,
-        'image' => $faker->text(10).$faker->randomElement(['.jpg','.PNG','.jpeg','.gif']),
+        'image'         =>  str_replace("storage/uploads/company\\","",ltrim(strstr($faker->image('public/storage/uploads/company',  640, 480, null, true), "/"),  "/")),
         'address' => $faker->address,
         'status' => $faker->randomElement([0,1])
     ];
