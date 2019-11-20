@@ -59,7 +59,7 @@ class HomeController extends Controller
          $data =   [
             'companies' => Company::all(),
         ];
-        //return response()->json($data);
+       // return response()->json($data);
 
     	return view('company.category_listing.top_company')->with($data);
     }

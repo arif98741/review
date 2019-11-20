@@ -64,6 +64,8 @@ class ReviewerController extends Controller
         'reviewer' => Reviewer::with('country')->where('id',Auth::guard('reviewer')->user()->id)->first(),
         'countries' => Country::all()
       ];
+
+        //dd($data['reviewer']) ;
       
     	return view('reviewer.setting')->with($data);
     }

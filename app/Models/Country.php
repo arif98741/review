@@ -9,6 +9,6 @@ class Country extends Model
    
     public function reviewer()
     {
-        return $this->hasMany(Country::class);
+        return $this->hasMany(Country::class)->withDefault();
     }
 }
