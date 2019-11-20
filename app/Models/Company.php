@@ -46,4 +46,11 @@ class Company extends Authenticatable
     {
         return $this->belongsTo(Category::class)->withDefault();
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class)->withDefault();
+    }
+
+    
 }

@@ -49,7 +49,7 @@
 				<li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In" style="color: #000;">Sign In</a>
 				</li>
 				@elseif(Auth::guard('reviewer')->check())
-				<li><a href="{{ url('reviewer/write-review') }}" class="btn_top">Write a Review</a></li>
+				
 				<li><a href="{{ url('/reviewer/logout') }}"
 					onclick="event.preventDefault();
 					document.getElementById('reviewer-logout-form').submit();"

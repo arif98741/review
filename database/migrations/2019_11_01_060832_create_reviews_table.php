@@ -14,10 +14,10 @@ class CreateReviewsTable extends Migration
             $table->string('title');
             $table->text('review_text');
             $table->string('rating',3);
-            $table->unsignedBigInteger('reviwer_id')->nullable();
+            $table->unsignedBigInteger('reviewer_id')->nullable();
             $table->unsignedBigInteger('company_id');
             $table->string('image')->nullable();
-            $table->foreign('reviwer_id')->references('id')->on('reviewers')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('reviewer_id')->references('id')->on('reviewers')->onDelete('set null')->onUpdate('cascade');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
@@ -26,7 +26,7 @@ class CreateReviewsTable extends Migration
     public function down()
     {
         Schema::dropForeign('company_id');
-        Schema::dropForeign('reviwer_id');
+        Schema::dropForeign('reviewer_id');
         Schema::dropIfExists('reviews');
     }
 }

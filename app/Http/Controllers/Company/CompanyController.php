@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Company;
+use App\Models\Review;
 use Validator;
 use Session;
 use Storage;
@@ -24,9 +25,12 @@ class CompanyController extends Controller
    {
 
    		$data =   [
-            'company' => Company::with(['category'])->where('id',$id)->firstOrFail()
+            'company_rating' => Review::with(['company'])->where('company_id',$id)->sum('rating'),
+            'reviews_data'=> Review::with(['company','review_image','reviewer'])->where('company_id',$id)->orderBy('created_at','desc')->get(),
+            'company'     => Company::with(['category'])->where('id',$id)->firstOrFail()
        
         ];
+      //return $data['company_rating'];
    		return view('company.profile')->with($data);
    }
 

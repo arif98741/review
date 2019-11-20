@@ -38,4 +38,12 @@ class Reviewer extends Authenticatable
     {
         return $this->belongsTo(Country::class);
     }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+
+    
 }

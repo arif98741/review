@@ -11,7 +11,7 @@ $factory->define(Review::class, function (Faker $faker) {
         'title' => ucfirst($faker->text(30)),
         'review_text' => $faker->text(100),
         'rating' => rand(1,5),
-        'reviwer_id' => Reviewer::all()->random(),
+        'reviewer_id' => Reviewer::all()->random(),
         'company_id' => Company::all()->random(),
         'image'        => $faker->text(10) . $faker->randomElement(['.jpg', '.png', '.jpeg'])
     ];
