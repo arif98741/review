@@ -105,6 +105,9 @@
 			</div>
 			
 			<div id="reccomended" class="owl-carousel owl-theme">
+
+
+
 				<div class="item">
 					<div class="review_listing">
 						<div class="clearfix">
@@ -115,7 +118,7 @@
 						<h3><strong>Jhon Doe</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
 						<h4>"Avesome Experience"</h4>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
+                         Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
 						<ul class="clearfix">
 							<li><small>Published: 26.08.2018</small></li>
 							<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
@@ -123,77 +126,17 @@ Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
 					</div>
 				</div>
 				
-				<div class="item">
-					<div class="review_listing">
-						<div class="clearfix">
-							<figure><img src="{{asset('asset/front/img/avatar2.jpg')}}" alt=""></figure>
-							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-							<small>Shops</small>
-						</div>
-						<h3><strong>Marika</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-						<h4>"Great products"</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
-						<ul class="clearfix">
-							<li><small>Published: 26.08.2018</small></li>
-							<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-						</ul>
-					</div>
-				</div>
 				
-				<div class="item">
-					<div class="review_listing">
-						<div class="clearfix">
-							<figure><img src="{{asset('asset/front/img/avatar3.jpg')}}" alt=""></figure>
-							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-							<small>Shops</small>
-						</div>
-						<h3><strong>Lukas Lee</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-						<h4>"Excellent Support"</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
-						<ul class="clearfix">
-							<li><small>Published: 26.08.2018</small></li>
-							<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-						</ul>
-					</div>
-				</div>
 				
-				<div class="item">
-					<div class="review_listing">
-						<div class="clearfix">
-							<figure><img src="{{asset('asset/front/img/avatar4.jpg')}}" alt=""></figure>
-							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><em>4.50/5.00</em></span>
-							<small>Shops</small>
-						</div>
-						<h3><strong>Margaret</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-						<h4>"Perfect"</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
-						<ul class="clearfix">
-							<li><small>Published: 26.08.2018</small></li>
-							<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-						</ul>
-					</div>
-				</div>
 				
-				<div class="item">
-					<div class="review_listing">
-						<div class="clearfix">
-							<figure><img src="{{asset('asset/front/img/avatar5.jpg')}}" alt=""></figure>
-							<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-							<small>Shops</small>
-						</div>
-						<h3><strong>Mark Twain</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-						<h4>"Shipping Very Fast"</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-Dolores doloremque hic vero nemo qui deleniti similique laborum.</p>
-						<ul class="clearfix">
-							<li><small>Published: 26.08.2018</small></li>
-							<li><a href="#0" class="btn_1 small">Read review</a></li>
-						</ul>
-					</div>
-				</div>
+				
+							
+				
+
+
+
+
+
 
 			</div>
 			<!-- /carousel -->
