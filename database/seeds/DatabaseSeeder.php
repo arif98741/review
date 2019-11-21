@@ -10,9 +10,10 @@ use App\Models\Comment;
 use App\Models\Company;
 use App\Models\Founder;
 use App\Models\Package;
+use App\Models\Reply;
 use App\Models\Review;
-use App\Models\ReviewImage;
 use App\Models\Reviewer;
+use App\Models\ReviewImage;
 use App\Models\Setting;
 
 class DatabaseSeeder extends Seeder
@@ -32,6 +33,7 @@ class DatabaseSeeder extends Seeder
           //factory(Founder::class, 5)->create();
           factory(Review::class, 10)->create();
           factory(ReviewImage::class, 10)->create();
+          factory(Reply::class, 20)->create();
           //factory(Setting::class, 1)->create();
     }
 }

@@ -94,7 +94,7 @@
 			<div class="row">
 				<div class="col-lg-8">
 					@foreach($reviews_data as $review_data)
-					<div class="review_card">
+					<div class="review_card" id="position{{$review_data->id}}">
 						<div class="row">
 							<div class="col-md-2 user_info">
 								<figure><img src="{{url('storage/uploads/reviewer/'.$review_data->reviewer->image)}}" alt=""></figure>
@@ -122,23 +122,29 @@
 									<ul>
 										{{-- <li><a href="#0"><i class="icon_like_alt"></i><span>Useful</span></a></li> --}}
 										{{-- <li><a href="#0"><i class="icon_dislike_alt"></i><span>Not useful</span></a></li> --}}
-										<li><span>Share</span> <a href="#0"><i class="ti-facebook"></i></a> <a href="#0"><i class="ti-twitter-alt"></i></a> <a href="#0"><i class="ti-google"></i></a></li>
+										<li><span>Share</span> <a href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}" target="_blank"><i class="ti-facebook"></i></a> <a href="http://twitter.com/share?text={{ $company->company_name }}&url={{ url()->current() }}&hashtags=review,website,share" target="_blank"><i class="ti-twitter-alt"></i></a></li>
 									</ul>
 								</div>
 							</div>
 							<!-- /row -->
+
+							@foreach($review_data->reply as $replyvalue)
 							<div class="row reply">
 								<div class="col-md-2 user_info">
 									<figure><img src="{{url('storage/uploads/company/'.$company->image)}}" alt=""></figure>
 								</div>
 								<div class="col-md-10">
 									<div class="review_content">
-										<strong>Reply from Good Electronics</strong>
-										<em>Published 3 minutes ago</em>
-										<p><br>Hi Monika,<br><br>Eos tollit ancillae ea, lorem consulatu qui ne, eu eros eirmod scaevola sea. Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut. Viderer petentium cu his. Tollit molestie suscipiantur his et.<br><br>Thanks</p>
+										<strong>Reply from {{ $company->company_name }}</strong>
+										<em>Published {{ time_elapsed_string($replyvalue->created_at)  }}</em>
+										<p><br>Hi, <strong>{{ $review_data->reviewer->fullname }}</strong><br>{{ $replyvalue->reply_text }}<br><br>thanks</p>
 									</div>
 								</div>
 							</div>
+
+							@endforeach
+
+
 							<!-- /reply -->
 						</div>
 

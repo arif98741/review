@@ -25,8 +25,8 @@ class CreateReviewsTable extends Migration
 
     public function down()
     {
-        Schema::dropForeign('company_id');
         Schema::dropForeign('reviewer_id');
+        Schema::dropForeign('company_id');
         Schema::dropIfExists('reviews');
     }
 }

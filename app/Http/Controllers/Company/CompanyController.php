@@ -26,7 +26,7 @@ class CompanyController extends Controller
 
    		$data =   [
             'company_rating' => Review::with(['company'])->where('company_id',$id)->sum('rating'),
-            'reviews_data'=> Review::with(['company','review_image','reviewer'])->where('company_id',$id)->orderBy('created_at','desc')->get(),
+            'reviews_data'=> Review::with(['company','review_image','reviewer','reply'])->where('company_id',$id)->orderBy('created_at','desc')->get(),
             'company'     => Company::with(['category'])->where('id',$id)->firstOrFail()
        
         ];
