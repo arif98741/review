@@ -16,7 +16,7 @@ class Review extends Model
         return $this->belongsTo(Company::class);
     }
 
-   
+
     public function reviewer()
     {
         return $this->belongsTo(Reviewer::class);
@@ -28,12 +28,9 @@ class Review extends Model
         return $this->hasMany(Reply::class);
     }
 
-  
+
     public function categories()
     {
         return $this->belongsTo(Category::class);
     }
-
-  
-
 }

@@ -19,19 +19,16 @@ class HomeController extends Controller
     public function index()
     {
         $data =   [
+            'top_categories' => Category::with(['company', 'review'])->get(),
             'categories' => Category::all(),
             'reviews_data' => Review::with(['company', 'reviewer'])->where(['status' => 1])->orderBy('created_at', 'desc')->limit(12)->get()
         ];
-        //  return $data['reviews_data'];
-
-        return view('web.home')->with($data);
+        return $data['top_categories'];
     }
 
 
     public function company_landing()
     {
-
-
 
         return view('company.companies.companies_landing');
     }

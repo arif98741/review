@@ -18,4 +18,9 @@ class Category extends Model
         return $this->hasMany(Review::class);
     }
 
+
+    public function review()
+    {
+        return $this->belongsTo(Review::class, 'category_id', 'review_id');
+    }
 }
