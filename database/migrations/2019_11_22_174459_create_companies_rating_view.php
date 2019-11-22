@@ -18,6 +18,6 @@ class CreateCompaniesRatingView extends Migration
     public function down()
     {
         //DB::statement("drop view if exists companies_rating");
-        //Schema::dropIfExists('company_rating_view');
+        Schema::dropIfExists('company_rating_view');
     }
 }

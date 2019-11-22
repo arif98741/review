@@ -19,18 +19,22 @@ class HomeController extends Controller
     public function index()
     {
         $data =   [
-            'top_categories' => Category::with(['company', 'review'])->get(),
+            'top_categories' => Category::with('companies.reviews')->limit(6)->get(),
             'categories' => Category::all(),
             'reviews_data' => Review::with(['company', 'reviewer'])->where(['status' => 1])->orderBy('created_at', 'desc')->limit(12)->get()
         ];
-        return $data['top_categories'];
+        //return $data['top_categories'];
+
+        return view('web.home')->with($data);
     }
 
 
     public function company_landing()
     {
-
-        return view('company.companies.companies_landing');
+        $data =   [
+            'companies' => Company::inRandomOrder()->get()
+        ];
+        return view('company.companies.companies_landing')->with($data);
     }
 
 

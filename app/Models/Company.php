@@ -10,48 +10,30 @@ class Company extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-   // protected $guarded = [];
 
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password',
-        'company_name','description','website','phone','address','image'
+        'company_name', 'description', 'website', 'phone', 'address', 'image'
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-  
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new CompanyResetPassword($token));
     }
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class)->withDefault();
-    }
 
     public function reviews()
     {
         return $this->hasMany(Review::class);
     }
 
-    public function review()
+    public function category()
     {
-        return $this->hasMany(Review::class);
+        return $this->belongsTo(Category::class);
     }
-
-    
-    
 }
