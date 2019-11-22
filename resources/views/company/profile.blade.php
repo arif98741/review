@@ -14,10 +14,23 @@
 						<small>{{ $company->category->category_name }}</small>
 						<h1>{{ $company->company_name }}</h1>
 						<span class="rating">
-							@php 
-							$total_rating = $company_rating/$reviews_data->count()
-							@endphp
 
+							@php $total_rating = 1 @endphp
+							@if($reviews_data->count() >1)
+
+								@php $total_rating = $company_rating/$reviews_data->count() @endphp
+
+							@else
+
+							 @php 
+
+
+							 $total_rating = $company_rating/1 @endphp
+
+
+							@endif
+
+							
 							@for($i=1; $i<= round($total_rating) ; $i++)
 							<i class="icon_star"></i>
 							@endfor

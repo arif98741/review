@@ -117,12 +117,21 @@
 								<i class="icon_star"></i>
 								@endfor
 
-								@for($j=1; $j<=5 - $review_data->rating; $j++)
-								<i class="icon_star empty"></i>
-								@endfor
+								@if(is_numeric($review_data->rating))
+
+									@for($j=1; $j<=5 - $review_data->rating; $j++)
+									<i class="icon_star empty"></i>
+									@endfor
+								@else	
+								@for($j=1; $j<=5 - 0; $j++)
+									<i class="icon_star empty"></i>
+									@endfor
+								@endif
+
+								
 
 								<em>{{ $review_data->rating }}.00/5.00</em></span>
-								<small>Shopsf</small>
+								<small>Shop</small>
 							</div>
 							<h3><strong>{{ $review_data->reviewer->fullname }}</strong> reviewed <a href="reviews-page.html">{{ $review_data->company->company_name }}</a></h3>
 							<h4>"{{ $review_data->title }}"</h4>

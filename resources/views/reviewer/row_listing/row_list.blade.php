@@ -39,68 +39,23 @@
 							</div>
 							<div class="filter_type">
 								<h6>Category</h6>
+
+						 @foreach($categories as $category)
+
 								<ul>
 									<li>
-										<label class="container_check">Men's Fashion <small>43</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-									<li>
-										<label class="container_check">Women's Fashion <small>33</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-									<li>
-										<label class="container_check">Phone & Accessories <small>12</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-									<li>
-										<label class="container_check">Sports & Outdoor <small>44</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-									<li>
-										<label class="container_check">Electronics <small>44</small>
+										<label class="container_check">{{ $category->category_name }} 
 										  <input type="checkbox">
 										  <span class="checkmark"></span>
 										</label>
 									</li>
 								</ul>
+
+						  @endforeach
+
+
 							</div>
-							<div class="filter_type">
-								<h6>Rating</h6>
-								<ul>
-									<li>
-										<label class="container_check">Superb 9+ <small>34</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-									<li>
-										<label class="container_check">Very Good 8+ <small>21</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-									<li>
-										<label class="container_check">Good 7+ <small>15</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-									<li>
-										<label class="container_check">Pleasant 6+ <small>34</small>
-										  <input type="checkbox">
-										  <span class="checkmark"></span>
-										</label>
-									</li>
-								</ul>
-							</div>
+							
 						</div>
 						<!--/collapse -->
 					</div>
@@ -113,218 +68,50 @@
 					<div class="isotope-wrapper">
 						<div class="row">
 
-							<div class="col-12 isotope-item latest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar1.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Jhon Doe</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Avesome Experience"</h4>
-									<p>Et nec tantas accusamus salutatus, sit commodo veritus te.Viderer petentium cu his. Tollit molestie suscipiantur his et...</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="{{ url('reviewer/reviews') }}" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
+                     @foreach ($reviews_data as $review_data)
 
 							<div class="col-12 isotope-item latest">
 								<div class="review_listing">
 									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar2.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star-half"></i><em>4.50/5.00</em></span>
+										<figure><img src="{{url('storage/uploads/reviewer/'.$review_data->reviewer->image)}}" alt=""></figure>
+										<span class="rating">
+
+
+										@for($i=1; $i<=$review_data->rating; $i++)
+								<i class="icon_star"></i>
+								@endfor
+
+								@if(is_numeric($review_data->rating))
+
+									@for($j=1; $j<=5 - $review_data->rating; $j++)
+									<i class="icon_star empty"></i>
+									@endfor
+								@else	
+								@for($j=1; $j<=5 - 0; $j++)
+									<i class="icon_star empty"></i>
+									@endfor
+								@endif
+
+												
+										
+												
+											</i><em>{{ $review_data->rating }}.00/5.00</em></span>
 										<small>Shops</small>
 									</div>
-									<h3><strong>Marika</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Great products"</h4>
-									<p>Et nec tantas accusamus salutatus</p>
+									<h3><strong>{{ $review_data->reviewer->fullname }}</strong> reviewed <a href="reviews-page.html">{{ $review_data->company->company_name }}</a></h3>
+									<h4>"{{ $review_data->title }}"</h4>
+									<p>{{ $review_data->review_text }}</p>
 									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
+										<li><small>Published:  {{ date('d.m.Y',strtotime($review_data->created_at)) }}</small></li>
+										<li><a href="{{ url('company/profile/'.$review_data->company->id.'/'.strtolower(str_replace(' ','-',$review_data->company->company_name))) }}#position{{$review_data->id}}" class="btn_1 small">Read review</a></li>
 									</ul>
 								</div>
 							</div>
 							<!-- /review_listing grid -->
 
-							<div class="col-12 isotope-item latest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar3.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Lukas Lee</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Excellent Support"</h4>
-									<p>Mucius doctus constituto pri at, ne cetero postulant pro. At vix utinam corpora, ea oblique moderatius usu. Vix id viris consul honestatis, an constituto deterruisset consectetuer pro.....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
-							<div class="col-12 isotope-item oldest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar4.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Mark Twain</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Shipping Very Fast"</h4>
-									<p>Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
 
-							<div class="col-12 isotope-item oldest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar5.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star-half"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Margaret</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Perfect"</h4>
-									<p>Mucius doctus constituto pri at, ne cetero postulant pro. At vix utinam corpora, ea oblique moderatius usu. Vix id viris consul honestatis, an constituto deterruisset consectetuer pro.....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
+                       @endforeach
 
-							<div class="col-12 isotope-item oldest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar6.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Tom Jones</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Everything good"</h4>
-									<p>Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->	
-							<div class="col-12 isotope-item latest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar7.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Jhon Doe</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Avesome Experience"</h4>
-									<p>Et nec tantas accusamus salutatus, sit commodo veritus te.Viderer petentium cu his. Tollit molestie suscipiantur his et...</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
-
-							<div class="col-12 isotope-item latest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar8.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star-half"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Marika</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Great products"</h4>
-									<p>Et nec tantas accusamus salutatus</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
-
-							<div class="col-12 isotope-item latest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Lukas Lee</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Excellent Support"</h4>
-									<p>Mucius doctus constituto pri at, ne cetero postulant pro. At vix utinam corpora, ea oblique moderatius usu. Vix id viris consul honestatis, an constituto deterruisset consectetuer pro.....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
-							<div class="col-12 isotope-item oldest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar3.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Mark Twain</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Shipping Very Fast"</h4>
-									<p>Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
-
-							<div class="col-12 isotope-item oldest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar6.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star-half"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Margaret</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Perfect"</h4>
-									<p>Mucius doctus constituto pri at, ne cetero postulant pro. At vix utinam corpora, ea oblique moderatius usu. Vix id viris consul honestatis, an constituto deterruisset consectetuer pro.....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->
-
-							<div class="col-12 isotope-item oldest">
-								<div class="review_listing">
-									<div class="clearfix add_bottom_15">
-										<figure><img src="{{ asset('asset/front/img/avatar8.jpg') }}" alt=""></figure>
-										<span class="rating"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i><em>4.50/5.00</em></span>
-										<small>Shops</small>
-									</div>
-									<h3><strong>Tom Jones</strong> reviewed <a href="reviews-page.html">Fnac</a></h3>
-									<h4>"Everything good"</h4>
-									<p>Et nec tantas accusamus salutatus, sit commodo veritus te, erat legere fabulas has ut. Rebum laudem cum ea, ius essent fuisset ut....</p>
-									<ul class="clearfix">
-										<li><small>Published: 26.08.2018</small></li>
-										<li><a href="reviews-page.html" class="btn_1 small">Read review</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /review_listing grid -->	
 						</div>
 						<!-- /row -->
 						</div>
@@ -340,5 +127,38 @@
 		
 	</main>
 	<!--/main-->
+
+	@php 
+
+		function time_elapsed_string($datetime, $full = false) {
+			$now = new DateTime;
+			$ago = new DateTime($datetime);
+			$diff = $now->diff($ago);
+
+			$diff->w = floor($diff->d / 7);
+			$diff->d -= $diff->w * 7;
+
+			$string = array(
+				'y' => 'year',
+				'm' => 'month',
+				'w' => 'week',
+				'd' => 'day',
+				'h' => 'hour',
+				'i' => 'minute',
+				's' => 'second',
+			);
+			foreach ($string as $k => &$v) {
+				if ($diff->$k) {
+					$v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+				} else {
+					unset($string[$k]);
+				}
+			}
+
+			if (!$full) $string = array_slice($string, 0, 1);
+			return $string ? implode(', ', $string) . ' ago' : 'just now';
+		}
+
+		@endphp
 	
 	@endsection

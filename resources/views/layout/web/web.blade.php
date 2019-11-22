@@ -98,7 +98,7 @@
 
 					</li>
 					@endif
-					<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
+					<li><span><a href="{{ url('company/category-companies-listing/company-name') }}">Top Companies</a></span></li>
 					<li><span><a href="#">About</a></span>
 						<ul>
 						{{-- <li><a href="">Compannies Landing Page</a></li>
@@ -156,12 +156,12 @@
 					</a>
 					<div class="collapse show" id="collapse_ft_2">
 						<ul class="links">
-							<li><a href="#0">Men's Fashion</a></li>
-							<li><a href="#0">Women's Fashion</a></li>
-							<li><a href="#0">Phone & Accessories</a></li>
-							<li><a href="#0">Sports & Outdoor</a></li>
-							<li><a href="#0">Electronics</a></li>
-							<li><a href="#0">View all</a></li>
+							@foreach(\App\Models\Category::all() as $category)
+							
+							<li><a href="#0">{{ $category->category_name }}</a></li>
+							@endforeach
+
+							
 						</ul>
 					</div>
 				</div>

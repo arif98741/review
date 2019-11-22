@@ -31,12 +31,7 @@ class Company extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * Send the password reset notification.
-     *
-     * @param  string  $token
-     * @return void
-     */
+  
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new CompanyResetPassword($token));
@@ -49,8 +44,14 @@ class Company extends Authenticatable
 
     public function reviews()
     {
-        return $this->hasMany(Review::class)->withDefault();
+        return $this->hasMany(Review::class);
     }
 
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    
     
 }

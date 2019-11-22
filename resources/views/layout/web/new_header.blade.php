@@ -81,7 +81,7 @@
 
 							</li>
 							@endif
-							<li><span><a href="{{ url('company/category-companies-listing') }}">Top Companies</a></span></li>
+							<li><span><a href="{{ url('company/category-companies-listing/company-name') }}">Top Companies</a></span></li>
 							<ul>
 						<!--<li><a href="companies-landing.html">Compannies Landing Page</a></li>
 						<li><a href="all-categories.html">Companies Categories Page</a></li>

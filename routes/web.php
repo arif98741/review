@@ -32,7 +32,7 @@ Route::namespace('Web')->group(function () {
     Route::get('reviewer/row-listing', 'HomeController@row_listings');
     Route::get('reviewer/reviews','HomeController@review');
 
-    Route::get('company/category-companies-listing', 'HomeController@category_listing');
+    Route::get('company/category-companies-listing/{order}', 'HomeController@category_listing');
 
     Route::get('user-dashboard', 'HomeController@user_dashboard');
     Route::get('reviewer/setting','Reviewer\ReviewerController@setting');

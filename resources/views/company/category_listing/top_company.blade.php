@@ -6,7 +6,7 @@
 		<div class="container">
 			<div class="row justify-content-between">
 				<div class="col-lg-3 col-md-4 col-10">
-					<h1><strong>145</strong> result for "Category"</h1>
+					 <h1><strong>{{ $companies->count() }} </strong> result found</h1>
 				</div>
 				<div class="col-xl-5 col-md-6 col-2">
 					<a href="#0" class="search_mob btn_search_mobile"></a> <!-- /open search panel -->
@@ -69,12 +69,12 @@
 			<ul class="clearfix">
 				<li>
 					<div class="switch-field">
-						<input type="radio" id="all" name="listing_filter" value="all" checked data-filter="*" class="selected">
-						<label for="all">All</label>
-						<input type="radio" id="high" name="listing_filter" value="high" data-filter=".high">
-						<label for="high">High rated</label>
-						<input type="radio" id="low" name="listing_filter" value="low" data-filter=".low">
-						<label for="low">Low rated</label>
+					
+
+						<a href="{{ url('company/category-companies-listing/company-name') }}" style="padding-left: 10px;">All</a>
+						<a href="{{ url('company/category-companies-listing/highest') }}" style="padding-left: 10px;">High Rated</a>
+						<a href="{{ url('company/category-companies-listing/lowest') }}" style="padding-left: 10px;">Low Rated</a>
+
 					</div>
 				</li>
 				
@@ -106,7 +106,37 @@
 
 					<div class="col-md-3">
 						<div class="text-center float-lg-right">
-							<span class="rating"><strong>Based on 265 reviews</strong><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star empty"></i></span>
+							<span class="rating"><strong>Based on {{ $company->total_rating }} reviews</strong>
+								@php 
+								$total_rating = 1;
+
+								  @endphp
+
+								
+							@if($company->company_rating > 1)
+
+								@php $total_rating = $company->company_rating/$company->total_rating@endphp
+							@else
+
+							 @php 
+
+
+							 $total_rating = $company_rating/1 @endphp
+
+
+							@endif
+
+							
+							@for($i=1; $i<= round($total_rating) ; $i++)
+							<i class="icon_star"></i>
+							@endfor
+
+							@for($j=1; $j<=5 - round($total_rating); $j++)
+							<i class="icon_star empty"></i>
+							@endfor
+
+
+							</span>
 							<a href="{{ url('company/profile/'.$company->id.'/'.strtolower(str_replace(' ','-',$company->company_name))) }}" class="btn_1 small">Read more</a>
 						</div>
 					</div>

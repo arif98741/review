@@ -2,7 +2,7 @@
 		   <div class="container">
 			   <div class="row justify-content-between">
 				   <div class="col-lg-3 col-md-4 col-10">
-					   <h1><strong>145</strong> result for "Category"</h1>
+					   <h1><strong>{{ $reviews_data->count() }} </strong> result found</h1>
 				   </div>
 				   <div class="col-xl-5 col-md-6 col-2">
 					   <a href="#0" class="search_mob btn_search_mobile"></a> <!-- /open search panel -->
