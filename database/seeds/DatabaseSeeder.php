@@ -26,14 +26,14 @@ class DatabaseSeeder extends Seeder
           factory(Package::class, 8)->create();
           factory(Company::class, 5)->create();
           factory(Reviewer::class, 5)->create();
-          //factory(BlogCategory::class, 8)->create();
-          //factory(BlogPost::class, 8)->create();
-          //factory(Comment::class, 10)->create();
+          factory(BlogCategory::class, 8)->create();
+          factory(BlogPost::class, 8)->create();
+          factory(Comment::class, 10)->create();
           factory(BlogTag::class, 8)->create();
-          //factory(Founder::class, 5)->create();
+          factory(Founder::class, 5)->create();
           factory(Review::class, 10)->create();
           factory(ReviewImage::class, 10)->create();
           factory(Reply::class, 20)->create();
-          //factory(Setting::class, 1)->create();
+          factory(Setting::class, 1)->create();
     }
 }
