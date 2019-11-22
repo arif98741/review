@@ -5,11 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateReviewersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('reviewers', function (Blueprint $table) {
@@ -20,23 +16,18 @@ class CreateReviewersTable extends Migration
             $table->string('password');
             $table->string('contact')->nullable();
             $table->string('city')->nullable();
-            $table->biginteger('country_id')->unsigned()->nullable();
+            $table->unsignedBigInteger('country_id')->default(18);
             $table->string('image')->nullable();
             $table->rememberToken();
-            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropForeign('country_id');
         Schema::drop('reviewers');
-
     }
 }
