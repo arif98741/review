@@ -22,6 +22,7 @@ Route::namespace('Admin')->group(function () {
     Route::resource('company', 'CompanyController');
     Route::group(['prefix' => 'review'], function () {
         Route::get('/', 'ReviewController@index');
-        Route::get('approve/{id}/{status}', 'ReviewController@approve');
+        Route::get('approve/{id}', 'ReviewController@approve');
+        Route::get('deny/{id}', 'ReviewController@deny');
     });
 });

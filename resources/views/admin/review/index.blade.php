@@ -42,6 +42,7 @@
                                     <thead>
                                         <tr>
                                             <th>Serial</th>
+                                            <th>Title</th>
                                             <th>Review By </th>
                                             <th>Company</th>
                                             <th>Date</th>
@@ -55,13 +56,21 @@
                                         <tr>
 
                                             <td>{{ ++$key }}</td>
+                                            <td>{{ $review->title }}</td>
                                             <td>{{ $review->reviewer->fullname }}</td>
                                             <td>{{ $review->company->company_name }}</td>
                                             <td>{{ date('h:i:s, d-m-Y',strtotime($review->created_at)) }}</td>
-                                            <td>
+                                            <td> @if($review->status == 0) Approved @endif @if($review->status == 1) Denied @endif
 
-                                                <a href="{{ url('admin/review/'.$review->id.'/approve') }}"><i class="fa fa-edit btn btn-primary"></i></a>
-                                                
+
+                                            </td>
+                                            <td>
+                                                @if($review->status == 0)
+                                                <a href="{{ url('admin/review/deny/'.$review->id) }}"><i class="fa fa-times btn btn-warning"></i></a> @endif @if($review->status == 1)
+                                                <a href="{{ url('admin/review/approve/'.$review->id) }}"><i class="fa fa-check btn btn-success"></i></a> @endif
+
+
+
                                             </td>
 
                                         </tr>
