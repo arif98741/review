@@ -22,10 +22,8 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <section class="content">
@@ -60,8 +58,6 @@
 
                                                 <a href="{{ url('admin/category/delete',$category->id) }}" onclick="return(confirm('are you sure to delete?'));"><i
                                                         class=" fa fa-trash btn btn-danger "></i></a>
-
-
                                             </td>
 
                                         </tr>

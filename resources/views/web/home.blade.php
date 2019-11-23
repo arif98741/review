@@ -7,7 +7,7 @@
         <div class="main_title_3">
             <h2>Top Categories</h2>
             <p></p>
-            <a href="#">View all</a>
+            <a href="{{ url('company/category-companies-listing/company-name')}}">View all</a>
         </div>
         <div class="row justify-content-center">
             @foreach($top_categories as $top_category)

@@ -49,6 +49,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
+
         return view('admin.category.edit')->with(compact('category'));
     }
 
@@ -59,9 +60,9 @@ class CategoryController extends Controller
         $category->category_name = $request->category_name;
         if ($request->hasFile('image')) {
 
+
             $category->image = $this->updateImage($request, $category);
         }
-
 
 
         if ($category->save()) {
@@ -97,10 +98,8 @@ class CategoryController extends Controller
 
         if (file_exists("public/uploads/category/" . $category->image)) {
 
-
             Storage::delete("public/uploads/category/" . $category->image);
         }
-
 
         $filenameWithExt = $request->file('image')->getClientOriginalName();
         $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
@@ -113,8 +112,6 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
-
-
         $category = Category::find($id);
         if ($category->delete()) {
             # code...

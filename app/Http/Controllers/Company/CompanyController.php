@@ -30,7 +30,7 @@ class CompanyController extends Controller
             'company'     => Company::with(['category'])->where('id', $id)->firstOrFail()
 
         ];
-        //return $data['company_rating'];
+        //return $data['reviews_data'];
         return view('company.profile')->with($data);
     }
 

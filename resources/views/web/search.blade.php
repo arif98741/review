@@ -7,30 +7,29 @@
                     <h1><strong>{{ $companies->count() }} </strong> results found</h1>
                 </div>
                 <div class="col-xl-5 col-md-6 col-2">
-                    <a href="#0" class="search_mob btn_search_mobile"></a>
-                    <!-- /open search panel -->
-                    <div class="row no-gutters custom-search-input-2 inner">
-                        <div class="col-lg-7">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Search reviews for a company">
-                                <i class="icon_search"></i>
+                    <form action="{{ url('/search') }}">
+                        <a href="#0" class="search_mob btn_search_mobile"></a>
+                        <!-- /open search panel -->
+                        <div class="row no-gutters custom-search-input-2 inner">
+                            <div class="col-lg-7">
+                                <div class="form-group">
+                                    <input class="form-control" name="keyword" type="text" placeholder="Search reviews for a company">
+                                    <i class="icon_search"></i>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <select class="wide" name="category_id">
+                                    <option value="" selected disabled>Select Category</option>
+                                    @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-xl-1 col-lg-1">
+                                <input type="submit" value="Search">
                             </div>
                         </div>
-                        <div class="col-lg-4">
-                            <select class="wide">
-                                <option>All Categories</option>
-                                <option>Men's Fashion</option>
-                                <option>Women's Fashion</option>
-                                <option>Phone & Accessories</option>
-                                <option>Sports & Outdoor</option>
-                                <option>Electronics</option>
-                                <option>View all</option>
-                            </select>
-                        </div>
-                        <div class="col-xl-1 col-lg-1">
-                            <input type="submit" value="Search">
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <!-- /row -->

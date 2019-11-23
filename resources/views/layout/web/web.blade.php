@@ -86,7 +86,8 @@
                     @if(Auth::guard('reviewer')->check())
                     <li><span><a href="#0">Profile</a></span>
                         <ul>
-                            <li><a href="{{ url('/user-dashboard') }}">User Dashboard</a>
+                            <li><a href="{{ url('/reviewer/profile/'.Auth::guard('reviewer')->user()->id) }}">User
+                                    Dashboard</a>
                             </li>
                             <li><a href="{{ url('reviewer/setting') }}">User Settings</a></li>
                         </ul>
@@ -98,7 +99,7 @@
                     <li><span><a href="#">About</a></span>
                         <ul>
                             {{--
-                            <li><a href="">Compannies Landing Page</a></li>
+                            <li><a href="">Companies Landing Page</a></li>
                             <li><a href="all-categories.html">Companies Categories Page</a></li> --}}
                             <li><a href="{{ url('about') }}">About Us</a></li>
                             <li><a href="{{ url('help') }}">Help Section</a></li>

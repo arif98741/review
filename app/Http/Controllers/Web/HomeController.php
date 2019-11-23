@@ -11,6 +11,7 @@ use App\Models\Reviewer;
 use App\Models\Review;
 use App\Models\Package;
 use Session;
+use Auth;
 
 
 
@@ -103,9 +104,16 @@ class HomeController extends Controller
     }
 
 
-    public function user_dashboard()
+    public function profile(Request $request, $id)
     {
-        return view('profile.user_dashboard');
+        $data = [
+            'profile' => Reviewer::with(['review', 'country'])->findorFail($id),
+            'reviews_data' => Review::with(['company', 'review_image'])->where('reviewer_id', $id)->get()
+        ];
+        //return $data['profile'];
+        // exit;
+
+        return view('web.profile.reviewer_profile')->with($data);
     }
 
     public function review()
@@ -115,24 +123,56 @@ class HomeController extends Controller
 
     public function search(Request $request)
     {
-        //dd($request->all());
-        //$request->all();
-
-        $data = array(
-            'companies' => DB::table('companies')
-                ->join('categories', 'categories.id', '=', 'companies.category_id')
-                ->join('reviews', 'reviews.company_id', '=', 'companies.id')
-                ->join('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
-                ->select("companies.*", DB::raw("sum(reviews.rating) as company_rating"), DB::raw("count(reviews.id) as total_rating"))
-                //->where('categories.id', $request->category_id)
-                ->where('companies.company_name', 'like', '%' . $request->keyword . '%')
-                ->orderBy('companies_rating.total_rating', 'asc')
-                ->groupBy('reviews.company_id')
-                ->get()
-        );
+        $data['keyword'] = $request->keyword;
 
 
-        return $data['companies'];
-        return view('web.search')->with($data);
+        if (isset($request->category_id)) {
+
+            $data = array(
+                'companies' => DB::table('companies')
+                    ->join('categories', 'categories.id', '=', 'companies.category_id')
+                    ->join('reviews', 'reviews.company_id', '=', 'companies.id')
+                    ->join('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
+                    ->select("companies.*", DB::raw("sum(reviews.rating) as company_rating"), DB::raw("count(reviews.id) as total_rating"))
+                    ->where('categories.id', $request->category_id)
+                    ->orWhere('companies.company_name', 'like', '%' . $request->keyword . '%')
+                    ->orderBy('companies_rating.total_rating', 'asc')
+                    ->groupBy('reviews.company_id')
+                    ->get()
+            );
+
+            $data['categories'] = Category::orderBy("category_name")->get();
+            return view('web.search')->with($data);
+        } elseif (isset($request->keyword)) {
+            $data = array(
+                'companies' => DB::table('companies')
+                    ->join('categories', 'categories.id', '=', 'companies.category_id')
+                    ->join('reviews', 'reviews.company_id', '=', 'companies.id')
+                    ->join('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
+                    ->select("companies.*", DB::raw("sum(reviews.rating) as company_rating"), DB::raw("count(reviews.id) as total_rating"))
+                    ->where('companies.company_name', 'like', '%' . $request->keyword . '%')
+                    ->orderBy('companies_rating.total_rating', 'asc')
+                    ->groupBy('reviews.company_id')
+                    ->get()
+            );
+
+            $data['categories'] = Category::orderBy("category_name")->get();
+            return view('web.search')->with($data);
+        } else if (isset($request->category_id)) {
+
+            $data = array(
+                'companies' => DB::table('companies')
+                    ->join('categories', 'categories.id', '=', 'companies.category_id')
+                    ->join('reviews', 'reviews.company_id', '=', 'companies.id')
+                    ->join('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
+                    ->select("companies.*", DB::raw("sum(reviews.rating) as company_rating"), DB::raw("count(reviews.id) as total_rating"))
+                    ->where('companies.company_name', 'like', '%' . $request->keyword . '%')
+                    ->orderBy('companies_rating.total_rating', 'asc')
+                    ->groupBy('reviews.company_id')
+                    ->get()
+            );
+            $data['categories'] = Category::orderBy("category_name")->get();
+            return view('web.search')->with($data);
+        }
     }
 }
