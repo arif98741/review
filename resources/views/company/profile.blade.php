@@ -116,7 +116,7 @@
                                         <i class="icon_star"></i>
                                         @endfor
 
-                                        @for($j=1; $j<=5 - 1->rating; $j++)
+                                        @for($j=1; $j<=5 - 1; $j++)
                                             <i class="icon_star empty"></i>
                                             @endfor
 
