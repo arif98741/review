@@ -92,8 +92,6 @@ class CategoryController extends Controller
     }
 
 
-
-
     private function updateImage($request, $category)
     {
 
@@ -113,10 +111,11 @@ class CategoryController extends Controller
     }
 
 
-    public function destroy($id)
+    public function delete($id)
     {
+
+
         $category = Category::find($id);
-        $category->delete();
         if ($category->delete()) {
             # code...
             Session::flash('success', 'Category deleted successfully');

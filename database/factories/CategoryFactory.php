@@ -7,7 +7,10 @@ use Faker\Generator as Faker;
 
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'category_name' => ucfirst($faker->text(10)),
+        'category_name' => $faker->randomElement([
+            'Fashion', 'Internet Service Provider', 'Newspaper', 'Travel Agency', 'E-Commerce', 'Low Farm', 'Home Decor', 'Electronics', 'Health Agency', 'Hospital', 'Payment Gateway', 'Software Industry', 'Personal Care'
+
+        ]),
         'image'         =>  str_replace("storage/uploads/category\\", "", ltrim(strstr($faker->image('public/storage/uploads/category',  640, 480, null, true), "/"),  "/"))
     ];
 });

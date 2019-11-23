@@ -14,6 +14,7 @@ Route::namespace('Admin')->group(function () {
     Route::get('dashboard', 'AdminController@dashboard')->name('dashboard');
     Route::match(['get', 'post'], 'setting', 'AdminController@setting')->name('setting');
     Route::resource('category', 'CategoryController');
+    Route::get('category/delete/{id}', 'CategoryController@delete');
     Route::resource('package', 'PackageController');
     Route::resource('blog_category', 'BlogcategoryController');
     Route::resource('blog', 'BlogPostController');

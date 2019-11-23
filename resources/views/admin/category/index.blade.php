@@ -58,11 +58,9 @@
                                                 <a href="{{ route('admin.category.edit',$category->id) }}"><i
                                                         class="fa fa-edit btn btn-primary"></i></a>
 
-                                                <a href="{{ route('admin.category.destroy',$category->id) }}" onclick="return(confirm('are you sure to delete?'));event.preventDefault();
-                                                                       document.getElementById('category-delete-form').submit();"><i class="fa fa-trash btn btn-danger"></i></a>
-                                                <form id="category-delete-form" action="{{ route('admin.category.destroy',$category->id) }}" method="POST" style="display: none;">
-                                                    @method('DELETE') {{-- @csrf --}} {{ csrf_field() }}
-                                                </form>
+                                                <a href="{{ url('admin/category/delete',$category->id) }}" onclick="return(confirm('are you sure to delete?'));"><i
+                                                        class=" fa fa-trash btn btn-danger "></i></a>
+
 
                                             </td>
 
@@ -87,19 +85,19 @@
     <!-- /.content -->
 </div>
 @push('extra-css')
-<link rel="stylesheet" href="{{asset('asset/back/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}"> @endpush @push('extra-scripts')
-<script src="{{asset('asset/back/plugins/datatables/jquery.dataTables.js')}}"></script>
-<script src="{{asset('asset/back/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
+<link rel="stylesheet " href="{{asset( 'asset/back/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}} "> @endpush @push('extra-scripts')
+<script src="{{asset( 'asset/back/plugins/datatables/jquery.dataTables.js')}} "></script>
+<script src="{{asset( 'asset/back/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}} "></script>
 <script>
     $(function() {
-        $("#example1").DataTable();
+        $("#example1 ").DataTable();
         $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
+            "paging ": true,
+            "lengthChange ": false,
+            "searching ": false,
+            "ordering ": true,
+            "info ": true,
+            "autoWidth ": false,
         });
     });
 </script>

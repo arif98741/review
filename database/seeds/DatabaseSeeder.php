@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
     {
 
         factory(Admin::class, 1)->create();
-        factory(Category::class, 6)->create();
+        factory(Category::class, 5)->create();
         factory(Package::class, 8)->create();
         factory(Company::class, 3)->create();
         factory(Reviewer::class, 5)->create();

@@ -23,7 +23,6 @@ class HomeController extends Controller
             'categories' => Category::all(),
             'reviews_data' => Review::with(['company', 'reviewer'])->where(['status' => 1])->orderBy('created_at', 'desc')->limit(12)->get()
         ];
-        //return $data['top_categories'];
 
         return view('web.home')->with($data);
     }
@@ -100,7 +99,6 @@ class HomeController extends Controller
             );
         }
 
-
         return view('company.category_listing.top_company')->with($data);
     }
 
@@ -110,11 +108,31 @@ class HomeController extends Controller
         return view('profile.user_dashboard');
     }
 
-
-
     public function review()
     {
-
         return view('reviewer.review.reviews');
+    }
+
+    public function search(Request $request)
+    {
+        //dd($request->all());
+        //$request->all();
+
+        $data = array(
+            'companies' => DB::table('companies')
+                ->join('categories', 'categories.id', '=', 'companies.category_id')
+                ->join('reviews', 'reviews.company_id', '=', 'companies.id')
+                ->join('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
+                ->select("companies.*", DB::raw("sum(reviews.rating) as company_rating"), DB::raw("count(reviews.id) as total_rating"))
+                //->where('categories.id', $request->category_id)
+                ->where('companies.company_name', 'like', '%' . $request->keyword . '%')
+                ->orderBy('companies_rating.total_rating', 'asc')
+                ->groupBy('reviews.company_id')
+                ->get()
+        );
+
+
+        return $data['companies'];
+        return view('web.search')->with($data);
     }
 }

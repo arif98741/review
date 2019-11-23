@@ -11,28 +11,23 @@ class PageController extends Controller
 {
     public function about()
     {
-    	$data =   [
-           'founders'   => Founder::all(),
-           //'categories' => Category::all()
-       ];
+        $data =   [
+            'founders'   => Founder::all(),
+            //'categories' => Category::all()
+        ];
 
-    	return view('web.page.about')->with($data);
+        return view('web.page.about')->with($data);
     }
 
     public function help()
     {
-    	
 
-    	return view('web.page.help');
+        return view('web.page.help');
     }
 
     public function contact()
     {
-    	
 
-    	return view('web.page.contact');
+        return view('web.page.contact');
     }
-
-    
-
 }
