@@ -6,6 +6,9 @@ use Faker\Generator as Faker;
 
 $factory->define(BlogCategory::class, function (Faker $faker) {
     return [
-        'name'     => ucfirst($faker->unique()->text(15)),
+        'name'     => $faker->randomElement([
+
+            'Electronics', 'Travel', 'Shopping', 'Sports', 'Database'
+        ]),
     ];
 });
