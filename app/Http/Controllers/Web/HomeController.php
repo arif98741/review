@@ -82,7 +82,7 @@ class HomeController extends Controller
             $data = array(
                 'companies' => DB::table('companies')
                     ->join('reviews', 'reviews.company_id', '=', 'companies.id')
-                    ->join('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
+                    ->leftjoin('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
                     ->select("companies.*", DB::raw("sum(reviews.rating) as company_rating"), DB::raw("count(reviews.id) as total_rating"))
                     ->orderBy('companies_rating.total_rating', 'desc')
                     ->groupBy('reviews.company_id')
@@ -92,13 +92,16 @@ class HomeController extends Controller
             $data = array(
                 'companies' => DB::table('companies')
                     ->join('reviews', 'reviews.company_id', '=', 'companies.id')
-                    ->join('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
+                    ->leftjoin('companies_rating', 'companies_rating.company_id', '=', 'companies.id')
                     ->select("companies.*", DB::raw("sum(reviews.rating) as company_rating"), DB::raw("count(reviews.id) as total_rating"))
                     ->orderBy('companies_rating.total_rating', 'asc')
                     ->groupBy('reviews.company_id')
                     ->get()
             );
         }
+
+       // return $data['companies']; exit;
+
 
         return view('company.category_listing.top_company')->with($data);
     }

@@ -121,7 +121,7 @@
 							 @php 
 
 
-							 $total_rating = $company_rating/1 @endphp
+							 //$total_rating = $company_rating/1 @endphp
 
 
 							@endif
