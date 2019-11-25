@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="VANNO - Premium directory consumer reviews and listings template by Ansonika">
-    <meta name="author" content="Ansonika">
-    <title>@yield('title') - ReviewStore</title>
+    <meta name="description" content="Review Store">
+    <meta name="author" content="Review Store">
+    <title>@yield('title') - Review Store</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="{{asset('asset/front/img/favicon.ico')}}" type="image/x-icon">
@@ -36,7 +36,7 @@
             <div id="logo">
                 <a href="{{ url('/') }}">
                     <img src="{{asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_normal">
-                    <img src="{{asset('asset/front/img/Logo-01.svg')}}" width="140" height="35" alt="" class="logo_sticky">
+                    <img src="{{asset('asset/front/img/Logo-02.svg')}}" width="140" height="35" alt="" class="logo_sticky">
                 </a>
             </div>
             <ul id="top_menu">
@@ -274,16 +274,16 @@
                 </div>
                 <div class="clearfix add_bottom_15">
                     <div class="checkboxes float-left">
-                        <label class="container_check">Remember me
+                        <label class="container_check">Remember Me
                             <input type="checkbox">
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                    <div class="float-right mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
+                    <div class="float-right mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password ?</a></div>
                 </div>
                 <div class="text-center"><input type="submit" value="Log In" class="btn_1 full-width"></div>
                 <div class="text-center">
-                    Don’t have an account? <a href="{{ url('company/register') }}">Sign up</a>
+                    Don’t have an account? <a href="{{ url('company/register') }}">Sign Up</a>
                 </div>
                 <div id="forgot_pw">
                     <div class="form-group">
